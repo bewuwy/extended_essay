@@ -1,6 +1,6 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[a4paper, total={6in, 10in}]{geometry}
+\usepackage[a4paper, margin=1in]{geometry}
 \usepackage{pgfplots}
 \usepackage{array}
 \usepackage{float}
@@ -14,14 +14,15 @@
 \usepackage{url}
 \usepackage[colorlinks,allcolors=black]{hyperref}
 
-\usepackage{blindtext}
+\usepackage{setspace}
+\onehalfspacing
 
 \title{Exploring mathematics of rolling bridges \\
     \large Extended essay \\
     \vspace{12pt} Word count: 1}
 
-\date{\today}
-\author{Bartek Włodarczyk}
+\date{}
+\author{}
 
 
 \pgfplotsset{compat=1.18}
@@ -48,8 +49,8 @@
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.75\linewidth]{images/bridge.png}
-            \caption{Bridge photo \url{https://newatlas.com/architecture/cody-dock-rolling-bridge/}}
-            \label{fig:enter-label}
+            \caption{Bridge photo \\\url{https://newatlas.com/architecture/cody-dock-rolling-bridge/}}
+            \label{fig:bridge_photo}
         \end{figure}
 
     \section{References}
@@ -98,6 +99,10 @@
             \end{enumerate}
             \item conclusion
         \end{enumerate}
+
+    \section{``Smoothly'' rolling square}
+
+        
     
     % \section{Conclusion}
     
