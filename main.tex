@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[a4paper, margin=1in]{geometry}
-\usepackage{pgfplots}
+% \usepackage{pgfplots}
 \usepackage{array}
 \usepackage{float}
 \usepackage{graphicx}
@@ -9,7 +9,6 @@
 \usepackage{amsmath}
 \usepackage{parskip}
 % \usepackage{biblatex}
-\graphicspath{ {./images/} }
 
 \usepackage{url}
 \usepackage[colorlinks,allcolors=black]{hyperref}
@@ -17,16 +16,14 @@
 \usepackage{setspace}
 \onehalfspacing
 
+\setlength{\jot}{12pt} % vertical skips in equations
+
 \title{Exploring mathematics of rolling bridges \\
     \large Extended essay \\
     \vspace{12pt} Word count: 1}
 
 \date{}
 \author{}
-
-
-\pgfplotsset{compat=1.18}
-\renewcommand{\arraystretch}{1.7}
 
 \begin{document}
 
@@ -37,7 +34,7 @@
     
     \section{Research question}
 
-    How can catenary curves be used in construction of non-circular "rolling" bridges?
+    How can catenary curves be used in construction of non-circular ``rolling'' bridges?
     
     \section{Introduction}
     
@@ -58,7 +55,7 @@
         \begin{enumerate}
             \item \url{https://community.wolfram.com/groups/-/m/t/2917199}
             \item \url{https://youtu.be/SsGEcLwjgEg}
-            \item \url {https://youtu.be/xGxSTzaID3k}
+            \item \url{https://youtu.be/xGxSTzaID3k}
         \end{enumerate}
 
     \newpage
@@ -102,8 +99,83 @@
 
     \section{``Smoothly'' rolling square}
 
+        In order to start, the ``smooth rolling'' has to be defined. If we e.g.\ take a circle shape and roll it on a straight surface, then it will roll ``smoothly''~-~its center of mass will move only horizontally and not vertically. However, when a square is rolled on the same surface, its center of mass will move vertically as well and hence its movement will not be ``smooth''.
+
+        Even so, why is it important to roll ``smoothly''? The answer is connected to physics, more specifically to the work needed to be done to roll the shape. If the figure is rolled ``smoothly'', then there is no need to do work in moving the center of mass up and down. Therefore, in the ideal world, the shape will roll without any work needed to be done (in reality, there is always some friction, so some work will always be needed to be done).
+
+        Another important property for this ``rolling'' is that when any point of the shape is in contact with the road surface, its velocity relative to it has to be zero. Otherwise, if the point was moving while touching the road, it would be sliding and not rolling.
+
+        However, there must exist a surface (other than straight road) on which a square can roll ``smoothly''. It will be described parametrically as follows:
+        \begin{align}
+            \begin{cases}
+            x = x(t) \\
+            y = y(t)
+            \end{cases}
+        \end{align}
+
+        Similarly, the square shape will also be parametrized. However, it will be parametrized in polar coordinates, as this representation will be easier to work with. The parametrization is as follows: 
+        \begin{align}
+            \begin{cases}
+            r = r(t) \\
+            \theta = \theta(t)
+            \end{cases}
+        \end{align}
+
+        To simplify the calculations, the line of movement of the center of mass of the square will be chosen to be the x-axis. Hence, the road will have to be under it, so $y(t) < 0$. Likewise, the center of mass of the square point (axle) will be chosen to be at the origin of its local coordinate system. The parameter $t$ can be thought of as the time, at which there is a point on the square and on the road, which are touching. Therefore, the point $(x, y)$ on the road will be the contact point on the road curve and similarly the point $(r, \theta)$ will be the contact point on the square curve.
+
+        Now, the relations between those two curves need to be found. If it is assumed that the square is on the road, then it must be touching it at some point. Moreover, the point of contact is not a random point on the curve, but the one directly beneath the center mass point (so the origin point). Therefore, it has to be the $r(t)$ point on the square curve. Hence, the distance from axle to the road must be equal to the road's depth ($-y(t)$):
+        \begin{equation}
+            r(t) = - y(t)
+        \end{equation}
+
+        Another relation can be found by looking at the contact point's velocity. It was earlier defined, that during contact, the velocity of a point relative to the road has to be zero. However, when it is looked at from the perspective of the axle point, all points on the square are constantly moving (while rolling). Therefore, if the point is stationary relative to the ground, but moving relative to the center point, then those speeds have to be equal to each other. The speed relative to road is simply $|\frac{dx}{dt}|$, while the speed relative to the axle can be calculated from its angular speed:
+        \begin{flalign*}
+            \omega &= \frac{d\theta}{dt} \\
+            v &= r \cdot \omega \\
+            v_{\text{axle}} &= r \frac{d\theta}{dt}
+        \end{flalign*}
+
+        Thence (the speeds, not the velocities are equal, hence the absolute value):
+        \begin{align}
+            \bigl|\frac{dx}{dt}\bigr| = \bigl|r \frac{d\theta}{dt}\bigr| \nonumber \\
+            \frac{dx}{dt} = \pm\; r \frac{d\theta}{dt}
+        \end{align}
+
+        However, it can be assumed that the square will roll to the right (in the positive $x$ direction), so the contact point will have to rotate counter-clockwise. Therefore, both $\frac{dx}{dt}$ and $\frac{d\theta}{dt}$ have to be positive. Hence:
+        \begin{equation}
+            \frac{dx}{dt} = r \frac{d\theta}{dt}
+        \end{equation}
+
+        Therefore, there are two relations between the road and square curve:
+        \begin{equation}
+            \begin{cases}
+                r = - y \\
+                \frac{dx}{dt} = r \frac{d\theta}{dt}
+            \end{cases}
+        \end{equation}
+
+        The $y$ part of the road curve can easily be found:
+        \begin{align}
+            % r(t) = - y(t) \nonumber \\
+            y = -r
+        \end{align}
+
+        For the $x$ part:
+        \begin{flalign}
+            \frac{dx}{dt} &= r \frac{d\theta}{dt} \nonumber\\
+            \int \frac{dx}{dt} dt &= \int r \frac{d\theta}{dt} \;dt \nonumber\\
+            \int dx &= \int r \;d\theta \nonumber\\
+            x &= r\theta + c
+        \end{flalign}
+
+        Hence:
+        \begin{equation}
+            \begin{cases}
+                y = -r \\
+                x = r\theta + c
+            \end{cases}
+        \end{equation}
         
-    
     % \section{Conclusion}
     
     %     \subsection{Reflections}    
