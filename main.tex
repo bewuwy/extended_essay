@@ -8,7 +8,6 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{parskip}
-% \usepackage{biblatex}
 
 \usepackage{url}
 \usepackage[colorlinks,allcolors=black]{hyperref}
@@ -169,13 +168,50 @@
         \end{flalign}
 
         Hence:
-        \begin{equation}
+        \begin{equation}\label{eq:road_1}
             \begin{cases}
                 y = -r \\
                 x = r\theta + c
             \end{cases}
         \end{equation}
-        
+
+        Now, the parametric functions for a square need to be found in order to find the road curve. For the simplicity of this calculation let the side length of the square be 2. To find the equations it is easiest to start with just a single side of the square (starting at $(1, -1)$ and ending at $(1, 1)$). Therefore:
+        \begin{align}
+            x(t) = 1 \\
+            y(t) = t
+        \end{align}
+
+        Those formulas can be converted to polar form using the following equations\cite{polar_rectangular}:
+        \begin{align}
+            r &= \sqrt{x^2 + y^2} \\
+            \theta &= \arctan\frac{y}{x}
+        \end{align}
+
+        Therefore:
+        \begin{align}
+            r(t) &= \sqrt{1^2 + t^2} = \sqrt{1+t^2} \\
+            \theta(t) &= \arctan\frac{t}{1} = \arctan(t)
+        \end{align}
+
+        These equations may be used to substitute into Equation \ref{eq:road_1}:
+        \begin{align}
+            y &= -r = -\sqrt{1+t^2} \\
+            x &= r\theta + c = \sqrt{1+t^2}\arctan(t) + c
+        \end{align}
+
+        Therefore:
+        \begin{equation}\label{eq:road_2}
+            \begin{cases}
+                x(t) = \sqrt{1+t^2}\arctan(t) + c \\
+                y(t) = -\sqrt{1+t^2} \\
+            \end{cases}
+        \end{equation}
+
+    % bibliography
+    \newpage
+    \bibliographystyle{unsrt}
+    \bibliography{refs}
+
     % \section{Conclusion}
     
     %     \subsection{Reflections}    
