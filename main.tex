@@ -159,23 +159,15 @@
             y = -r
         \end{align}
 
-        For the $x$ part:
-        \begin{flalign}
-            \frac{dx}{dt} &= r \frac{d\theta}{dt} \nonumber\\
-            \int \frac{dx}{dt} dt &= \int r \frac{d\theta}{dt} \;dt \nonumber\\
-            \int dx &= \int r \;d\theta \nonumber\\
-            x &= r\theta + c
-        \end{flalign}
-
         Hence:
         \begin{equation}\label{eq:road_1}
             \begin{cases}
                 y = -r \\
-                x = r\theta + c
+                \frac{dx}{dt} = r \frac{d\theta}{dt}
             \end{cases}
         \end{equation}
 
-        Now, the parametric functions for a square need to be found in order to find the road curve. For the simplicity of this calculation let the side length of the square be 2. To find the equations it is easiest to start with just a single side of the square (starting at $(1, -1)$ and ending at $(1, 1)$). Therefore:
+        Now, the parametric functions for a square need to be found in order to find the road curve. For the simplicity of this calculation let the side length of the square be 2. To find the equations it is easiest to start with just a single side of the square (starting at $(1, -1)$ and ending at $(1, 1)$). Therefore, x stays constant and y varies from -1 to 1. The parametric equations are as follows:
         \begin{align}
             x(t) = 1 \\
             y(t) = t
@@ -193,19 +185,58 @@
             \theta(t) &= \arctan\frac{t}{1} = \arctan(t)
         \end{align}
 
-        These equations may be used to substitute into Equation \ref{eq:road_1}:
+        These equations may be used to substitute into Equation \ref{eq:road_1}, which is very easy for the $y$ part:
         \begin{align}
-            y &= -r = -\sqrt{1+t^2} \\
-            x &= r\theta + c = \sqrt{1+t^2}\arctan(t) + c
+            y &= -r = -\sqrt{1+t^2}
+            % \frac{dx}{dt} &= r \frac{d\theta}{dt}
         \end{align}
 
-        Therefore:
+        For the $x$ part, the derivative of $\theta$ in respect to $t$ has to be found:
+        \begin{align}
+            \frac{d\theta}{dt} &= \frac{d}{dt} \arctan(t) \\
+            &= \frac{1}{1+t^2}
+        \end{align}
+
+        Then it can be substituted into the equation:
+        \begin{align}
+            \frac{dx}{dt} &= r \frac{d\theta}{dt} \\
+            \frac{dx}{dt} &= \sqrt{1+t^2} \frac{1}{1+t^2} \\
+            \frac{dx}{dt} &= \frac{1}{\sqrt{1+t^2}}
+        \end{align}
+
+        To obtain $x(t)$, the integral of $\frac{dx}{dt}$ has to be found:
+        \begin{align}
+            \int \frac{dx}{dt} dt &= \int \frac{1}{\sqrt{1+t^2}} \;dt \\
+            x(t) &= \int \frac{1}{\sqrt{1+t^2}} \;dt
+        \end{align}
+
+        Which is the integral of the derivative of inverse hyperbolic sine function\cite{oxford_dict}, therefore:
+        \begin{align}
+            x(t) &= \text{arsinh}(t) + c 
+        \end{align}
+
+        Hence, the road functions become ($c$ can be set to 0, as it is just a horizontal shift):
         \begin{equation}\label{eq:road_2}
             \begin{cases}
-                x(t) = \sqrt{1+t^2}\arctan(t) + c \\
+                x(t) = \text{arsinh}(t) \\
                 y(t) = -\sqrt{1+t^2} \\
             \end{cases}
         \end{equation}
+
+        They can be then turned back into cartesian form:
+        \begin{align}
+            t = \sinh(x) \\
+            y = -\sqrt{1+\sinh^2(x)} \\ 
+        \end{align}
+
+        Using $\cosh^2(x) - \sinh^2(x) = 1$\cite{oxford_dict}, the equation can be simplified:
+        \begin{align}
+            y = -\sqrt{\cosh^2(x)} \\
+            y(x) = -\cosh(x)
+        \end{align}
+
+        Which is actually an inverted catenary curve. This is a shape that is formed by a hanging chain, which is a very common shape in architecture. It can be seen graphed below:
+        % TODO - add graph of -cosh x
 
     % bibliography
     \newpage
