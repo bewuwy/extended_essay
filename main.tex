@@ -238,6 +238,29 @@
         Which is actually an inverted catenary curve. This is a shape that is formed by a hanging chain, which is a very common shape in architecture. It can be seen graphed below:
         % TODO - add graph of -cosh x
 
+    \section{Rounded square}
+
+        However, the bridge cannot be a polygon with sharp corners, as standing on just one point (vertex of the square) would be unstable. Therefore, the corners of the square have to be rounded. This can be done by adding a circle of radius $b$ to each corner of the square. (In the actual bridge the radius is equal to $0.25$ when the side length of the square is set to $2$)
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\linewidth]{images/rounded_square.png}
+            \caption{Rounded square\cite{bridge_wolfram}}
+            \label{fig:rounded_square}
+        \end{figure}
+
+        % TODO derive polar form of the corner
+
+        The corners have the polar form:
+        \begin{equation}
+            r = (1-b)\sqrt{2} \cos (\frac{\pi}{4} + \theta) + \sqrt{b^2 - 2(1-b)^2 \sin^2 (\frac{\pi}{4}+\theta)}
+        \end{equation}
+
+        Substituting $b=0.25$:
+        \begin{equation}
+            r = \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) + \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
+        \end{equation}
+
     % bibliography
     \newpage
     \bibliographystyle{unsrt}
