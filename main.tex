@@ -236,17 +236,59 @@
         \end{align}
 
         Which is actually an inverted catenary curve. This is a shape that is formed by a hanging chain, which is a very common shape in architecture. It can be seen graphed below:
-        % TODO - add graph of -cosh x
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\linewidth]{images/cosh_many.png}
+            \caption{Catenary curve with 3 square sides ``rolling'' on top of it}\label{fig:cosh}
+        \end{figure}
 
-    \section{Rounded square}
+        It can be observed, that this shape is not the whole road, but only its fragment. It is due to the previous approximation of only one side. However, the road is periodical and needs to repeat every time the magnitude of its slope is equal to $1$\cite{Hall_Wagon_1992}. % TODO - maybe explain why
+
+        Therefore it needs to be truncated when:
+        \begin{equation}
+            | \frac{dy}{dx} | = 1
+        \end{equation}
+
+        The derivative of $\cosh x$ is $\sinh x$, therefore:
+        \begin{align*}
+            \frac{dy}{dx} = - \sinh x \\
+        % \end{align*}
+        % \begin{align*}
+            \Rightarrow | - \sinh x | = 1 \\
+            \sinh x = 1 \quad\lor\quad \sinh x = -1
+        \end{align*}
+
+        Thus, the points at which to truncate are:
+        \begin{align*}
+            x = \text{arsinh}(1) \quad\lor\quad x = \text{arsinh}(-1)
+        \end{align*}
+
+        Due to arsinh properties $\text{arsinh}(-x) = - \text{arsinh}(x)$, so:
+        \begin{equation}
+            x = \pm \text{arsinh}(1)
+        \end{equation} 
+
+        It has been found that for any polygon of n-sides, if the road is truncated at $x = \pm \; \text{arsinh}(\tan(\pi / n))$, then the amount of rotation to get the polygon in the cusp is $\frac{2\pi}{n}$\cite{Hall_Wagon_1992}. This statement holds true, as for square $n=4$ and $\tan(\frac{\pi}{4}) = 1$. Therefore, the cusp angle is $\frac{\pi}{2}$ rad, the road fragments will intersect at a right angle, which makes sense given that a square's vertex needs to fit in between them. Thus, next road fragments should have the equation\cite{Hall_Wagon_1992}:
+        \begin{equation}
+            y = - \cosh (x + 2k \;\text{arsinh}(1) ) \quad \text{where}\; k \in \mathbb{Z}
+        \end{equation}
+        
+        A 3-fragment road can be seen below:
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\linewidth]{images/road_3.png}
+            \caption{Road for a rolling square consisting of 3 fragments}\label{fig:road3}
+        \end{figure}
+
+    \section{Finding rounded square equations}
 
         However, the bridge cannot be a polygon with sharp corners, as standing on just one point (vertex of the square) would be unstable. Therefore, the corners of the square have to be rounded. This can be done by adding a circle of radius $b$ to each corner of the square. (In the actual bridge the radius is equal to $0.25$ when the side length of the square is set to $2$)
 
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\linewidth]{images/rounded_square.png}
-            \caption{Rounded square\cite{bridge_wolfram}}
-            \label{fig:rounded_square}
+            \caption{Rounded square\cite{bridge_wolfram}}\label{fig:rounded_square}
         \end{figure}
 
         % TODO derive polar form of the corner
@@ -260,6 +302,10 @@
         \begin{equation}
             r = \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) + \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
         \end{equation}
+
+    \section{Finding rounded square road}
+
+        
 
     % bibliography
     \newpage
