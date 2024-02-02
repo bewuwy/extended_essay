@@ -9,6 +9,8 @@
 \usepackage{amsmath}
 \usepackage{parskip}
 
+\newcommand{\Hquad}{\hspace{0.5em}} 
+
 \usepackage{url}
 \usepackage[colorlinks,allcolors=black]{hyperref}
 
@@ -19,7 +21,7 @@
 
 \title{Exploring mathematics of rolling bridges \\
     \large Extended essay \\
-    \vspace{12pt} Word count: 1291}
+    \vspace{12pt} Word count: 1418}
 
 \date{}
 \author{}
@@ -281,9 +283,9 @@
             \caption{Road for a rolling square consisting of 3 fragments}\label{fig:road3}
         \end{figure}
 
-    \section{Finding rounded square equations}
+    \section{Rounding the square}
 
-        However, the bridge cannot be a polygon with sharp corners, as standing on just one point (vertex of the square) would be unstable. Therefore, the corners of the square have to be rounded. This can be done by adding a circle of radius $b$ to each corner of the square. (In the actual bridge the radius is equal to $0.25$ when the side length of the square is set to $2$)
+        However, the bridge cannot be a polygon with sharp corners, as standing on just one point (vertex of the square) would be too unstable for such a big structure (it weights 13 tons\cite{bridge_newatlas}). Therefore, the corners of the square have to be rounded. This can be done by adding a circle of radius $b$ to each corner of the square. (In the actual bridge the radius is equal to $0.25$ when the side length of the square is set to $2$). The new shape can be seen on Figure~\ref{fig:rounded_square} below.
 
         \begin{figure}[H]
             \centering
@@ -293,19 +295,66 @@
 
         % TODO derive polar form of the corner
 
-        The corners have the polar form:
+        The corners have the polar form\cite{bridge_wolfram} [Here maybe also add derivation?]:
         \begin{equation}
             r = (1-b)\sqrt{2} \cos (\frac{\pi}{4} + \theta) + \sqrt{b^2 - 2(1-b)^2 \sin^2 (\frac{\pi}{4}+\theta)}
         \end{equation}
+        \[- \text{arccot}(1-b) \leq \theta \leq \text{arccot}(1-b) - \frac{\pi}{2}\]
 
-        Substituting $b=0.25$:
+        Substituting $b=0.25$, the polar form of the rounded square is found:
         \begin{equation}
-            r = \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) + \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
+            r(\theta) = \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) + \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
+        \end{equation}
+        \[- \text{arccot}(\frac{3}{4}) \leq \theta \leq \text{arccot}(\frac{3}{4}) - \frac{\pi}{2} \quad \approx \quad -0.927 \leq \theta \leq -0.644\]
+
+        Now, the road for the corners has to be found. From Equation~\ref{eq:road_1} it is easy to find $y$:
+        \begin{equation}
+            y(\theta) = - \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) + \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
         \end{equation}
 
-    \section{Finding rounded square road}
+        This way, we find $y$ in terms of the angle $\theta$, but this form will be easier for this part of the road. Hence, $x$ should also be found in terms of $\theta$.
+        % \begin{align*}
+        %     x = x(t) = x(t(\theta))
+        % \end{align*}
 
-        
+        % Thus, by chain rule:
+        % \begin{align*}
+        %     \frac{dx}{d\theta} = \frac{d}{d\theta} \Bigr(x(t(\theta))\Bigl) = \frac{dx}{dt} \cdot \frac{dt}{d\theta}
+        % \end{align*}
+
+        From Equation~\ref{eq:road_1} it is known that:
+        \begin{equation}
+            \frac{dx}{dt} = r \frac{d\theta}{dt}
+        \end{equation}
+
+        Thus:
+        \begin{align}
+            \int \frac{dx}{dt} \Hquad dt &= \int r \frac{d\theta}{dt} \Hquad dt \\
+            \int dx &= \int r d\theta \\
+            x &= \int r d\theta
+        \end{align}
+
+        Substituting $r$:
+        \begin{align}
+            x(\theta) &= \int \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) + \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \Hquad d\theta \\
+            &= \frac{3\sqrt{2}}{4} \int \cos (\frac{\pi}{4} + \theta) \Hquad d\theta + \int \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \Hquad d\theta
+        \end{align}
+
+        Let:
+        \begin{align*}
+            I_1 = \frac{3\sqrt{2}}{4} \int \cos (\frac{\pi}{4} + \theta) \Hquad d\theta \quad \text{,} \quad
+            I_2 = \int \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \Hquad d\theta
+        \end{align*}
+
+        Using compound angle identity:
+        \begin{align}
+            I_1 &= \frac{3\sqrt{2}}{4} \int \cos (\frac{\pi}{4}) \cos(\theta) - \sin(\frac{\pi}{4}) \sin(\theta) \Hquad d\theta \\
+            &= \frac{3\sqrt{2}}{4} \int \frac{1}{\sqrt{2}} \cos(\theta) - \frac{1}{\sqrt{2}} \sin(\theta) \Hquad d\theta \\
+            &= \frac{3\sqrt{2}}{4} \cdot \frac{1}{\sqrt{2}} \int \cos(\theta) - \sin(\theta) \Hquad d\theta \\
+            I_1 &= \frac{3}{4} \cdot \frac{\sin(\theta) + \cos(\theta)}{\sqrt{2}} \Hquad
+        \end{align}
+
+        However, the $I_2$ is way trickier than the $I_1$ and cannot be solved using simple methods learned during the IB mathematics, as it is an elliptic integral of the second kind. Therefore, it will be instead solved numerically using the Euler's method. 
 
     % bibliography
     \newpage
