@@ -309,7 +309,7 @@
 
         Now, the road for the corners has to be found. From Equation~\ref{eq:road_1} it is easy to find $y$:
         \begin{equation}
-            y(\theta) = - \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) + \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
+            y(\theta) = - \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) - \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
         \end{equation}
 
         This way, we find $y$ in terms of the angle $\theta$, but this form will be easier for this part of the road. Hence, $x$ should also be found in terms of $\theta$.
@@ -351,10 +351,20 @@
             I_1 &= \frac{3\sqrt{2}}{4} \int \cos (\frac{\pi}{4}) \cos(\theta) - \sin(\frac{\pi}{4}) \sin(\theta) \Hquad d\theta \\
             &= \frac{3\sqrt{2}}{4} \int \frac{1}{\sqrt{2}} \cos(\theta) - \frac{1}{\sqrt{2}} \sin(\theta) \Hquad d\theta \\
             &= \frac{3\sqrt{2}}{4} \cdot \frac{1}{\sqrt{2}} \int \cos(\theta) - \sin(\theta) \Hquad d\theta \\
-            I_1 &= \frac{3}{4} \cdot \frac{\sin(\theta) + \cos(\theta)}{\sqrt{2}} \Hquad
+            I_1 &= \frac{3}{4} \cdot \frac{\sin(\theta) + \cos(\theta)}{\sqrt{2}}
         \end{align}
 
-        However, the $I_2$ is way trickier than the $I_1$ and cannot be solved using simple methods learned during the IB mathematics, as it is an elliptic integral of the second kind. Therefore, it will be instead solved numerically using the Euler's method. 
+        However, the $I_2$ integral is way trickier than the $I_1$ one and cannot be solved using simple methods learned during the IB mathematics, as it is an elliptic integral of the second kind\cite{elliptic_integral}. Therefore, it will be instead solved numerically using the Euler's method. 
+
+        Euler's method states that:
+        \begin{align*}
+            y_{n+1} = y_n + h \cdot f(x_n, y_n) \\
+            x_{n+1} = x_n +h
+        \end{align*}
+ 
+        \begin{equation}
+            x = \frac{3}{4} \cdot \frac{\sin(\theta) + \cos(\theta)}{\sqrt{2}} + \int \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \Hquad d\theta
+        \end{equation}
 
     % bibliography
     \newpage
