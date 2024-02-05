@@ -21,8 +21,8 @@
 
 \title{Exploring mathematics of rolling bridges \\
     \large Extended essay \\
-    \large RQ: How can catenary curves be used in construction of non-circular ``rolling'' bridges? \\
-    \vspace{12pt} Word count: 1234}
+    \normalsize Research Question: How can catenary curves be used in construction of non-circular, ``rolling'' bridges? \\
+    \vspace{12pt} Word count: 1657}
 
 \date{}
 \author{}
@@ -30,16 +30,16 @@
 \begin{document}
 
     \maketitle
-    \newpage
+    % \newpage
+    \vspace{4pt}
     \tableofcontents
     \newpage
     
     \section{Introduction}
+
+        Bridges are the ``structures that span horizontally between supports, whose function is to carry vertical loads''\cite{bridge_encyplopedia}. They allow us people to travel more easily and by this, they connect us. They have already existed for thousands of years, yet they there is still so little of real innovation in their design. 
     
-        \begin{enumerate}
-            \item My personal interest - I am interested in architecture and urban planning and this topic combines this with my passion for mathematics
-            \item I have found this bridge in an internet video - as an interesting mathematical phenomena existing in real life
-        \end{enumerate}
+        That is what the Cody Dock bridge is for me: a change. For once, the simplicity of a drawbridge was overruled by (quite literally) a simple revolution. The artists and architects who designed it wanted for it to be different from the thousands or even millions of other bridges. To achieve this, they used really interesting mathematics, which I will be investigating in this essay. Those innovators created one of the most unique drawbridges (if it even can be called a ``draw''bridge) in the world.
 
         \begin{figure}[H]
             \centering
@@ -48,9 +48,13 @@
         \end{figure}
         \footnotetext{Photo source: \url{https://newatlas.com/architecture/cody-dock-rolling-bridge/}}
 
+        However, the sheer innovation of this ``structure'' was not the only reason I decided to look more into it and broaden my mathematical knowledge by investigating it. I am also very interested in urban planing and architecture, which can be combined in this work with my passion for Mathematics.
+
+        I also believe, that this bridge is a sort of mathematical phenomena existing in the real world. It is using the generally forgotten field of catenary curves to create a functional art piece, perhaps to inspire others to explore the Mathematics behind it.
+
     \section{``Smoothly'' rolling square}
 
-        In order to start, the ``smooth rolling'' has to be defined. If we e.g.\ take a circle shape and roll it on a straight surface, then it will roll ``smoothly''~-~its center of mass will move only horizontally and not vertically. However, when a square is rolled on the same surface, its center of mass will move vertically as well and hence its movement will not be ``smooth''.
+        In order to even start the discussion, ``smooth rolling'' has to be defined. If we e.g.\ take a circle shape and roll it on a straight surface, then it will roll ``smoothly''~-~its center of mass will move only horizontally and not vertically. However, when a square is rolled on the same surface, its center of mass will move vertically as well and hence its movement will not be ``smooth''.
 
         Even so, why is it important to roll ``smoothly''? The answer is connected to physics, more specifically to the work needed to be done to roll the shape. If the figure is rolled ``smoothly'', then there is no need to do work in moving the center of mass up and down. Therefore, in the ideal world, the shape will roll without any work needed to be done (in reality, there is always some friction, so some work will always be needed to be done).
 
@@ -192,8 +196,9 @@
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.8\linewidth]{images/cosh_many.png}
-            \caption{Catenary curve with 3 square sides ``rolling'' on top of it}\label{fig:cosh}
+            \caption[Catenary curve with 3 square sides]{Catenary curve with 3 square sides ``rolling'' on top of it\footnotemark}\label{fig:cosh}
         \end{figure}
+        \footnotetext{All plots were created using the \textit{Matplotlib}\cite{Matplotlib} Python package, unless stated otherwise}
 
         It can be observed, that this shape is not the whole road, but only its fragment. It is due to the previous approximation of only one side. However, the road is periodical and needs to repeat every time the magnitude of its slope is equal to $1$\cite{Hall_Wagon_1992}. % TODO - maybe explain why
 
@@ -244,7 +249,6 @@
         \end{figure}
 
         % TODO derive polar form of the corner
-
         The corners have the polar form\cite{bridge_wolfram} [Here maybe also add derivation?]:
         \begin{equation}
             r = (1-b)\sqrt{2} \cos (\frac{\pi}{4} + \theta) + \sqrt{b^2 - 2(1-b)^2 \sin^2 (\frac{\pi}{4}+\theta)}
@@ -257,20 +261,14 @@
         \end{equation}
         \[- \text{arccot}(\frac{3}{4}) \leq \theta \leq \text{arccot}(\frac{3}{4}) - \frac{\pi}{2} \quad \approx \quad -0.927 \leq \theta \leq -0.644\]
 
-        Now, the road for the corners has to be found. From Equation~\ref{eq:road_1} it is easy to find $y$:
+    \section{Finding the road for a rounded square}
+
+        The rounded square is very similar to the normal one, apart from its corners. Hence, the road for the corners has to be found, as the one for the sides will be the same. From Equation~\ref{eq:road_1} it is easy to find $y$:
         \begin{equation}\label{eq:rounded_ytheta}
             y(\theta) = - \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) - \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
         \end{equation}
 
         This way, we find $y$ in terms of the angle $\theta$, but this form will be easier for this part of the road. Hence, $x$ should also be found in terms of $\theta$.
-        % \begin{align*}
-        %     x = x(t) = x(t(\theta))
-        % \end{align*}
-
-        % Thus, by chain rule:
-        % \begin{align*}
-        %     \frac{dx}{d\theta} = \frac{d}{d\theta} \Bigr(x(t(\theta))\Bigl) = \frac{dx}{dt} \cdot \frac{dt}{d\theta}
-        % \end{align*}
 
         From Equation~\ref{eq:road_1} it is known that:
         \begin{equation}
@@ -317,7 +315,7 @@
             x = \frac{3}{4} \cdot \frac{\sin(\theta) + \cos(\theta)}{\sqrt{2}} + \int \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \Hquad d\theta
         \end{equation}
 
-        Hence, the road for the rounded corner can be written as:
+        The road equations for the rounded corner can be written as:
         \begin{align}
             x_{n+1} &= x_n + \frac{3}{4} \cdot \frac{\sin(\theta) + \cos(\theta)}{\sqrt{2}} +
             h \cdot \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \\
@@ -369,12 +367,4 @@
     \bibliographystyle{unsrt}
     \bibliography{refs}
 
-    % \section{Conclusion}
-    
-    %     \subsection{Reflections}    
-    
-    %     \subsection{Limitations}
-    
-    %         How to improve, etc.
-        
 \end{document}
