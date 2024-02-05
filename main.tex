@@ -212,9 +212,9 @@
         \end{align*}
 
         Thus, the points at which to truncate are:
-        \begin{align*}
+        \begin{align}\label{eq:x_cosh_end}
             x = \text{arsinh}(1) \quad\lor\quad x = \text{arsinh}(-1)
-        \end{align*}
+        \end{align}
 
         Due to arsinh properties $\text{arsinh}(-x) = - \text{arsinh}(x)$, so:
         \begin{equation}
@@ -258,7 +258,7 @@
         \[- \text{arccot}(\frac{3}{4}) \leq \theta \leq \text{arccot}(\frac{3}{4}) - \frac{\pi}{2} \quad \approx \quad -0.927 \leq \theta \leq -0.644\]
 
         Now, the road for the corners has to be found. From Equation~\ref{eq:road_1} it is easy to find $y$:
-        \begin{equation}
+        \begin{equation}\label{eq:rounded_ytheta}
             y(\theta) = - \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) - \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
         \end{equation}
 
@@ -274,14 +274,14 @@
 
         From Equation~\ref{eq:road_1} it is known that:
         \begin{equation}
-            \frac{dx}{dt} = r \frac{d\theta}{dt}
+            \frac{dx}{dt} = r(\theta) \;\frac{d\theta}{dt}
         \end{equation}
 
         Thus:
         \begin{align}
-            \int \frac{dx}{dt} \Hquad dt &= \int r \frac{d\theta}{dt} \Hquad dt \\
-            \int dx &= \int r d\theta \\
-            x &= \int r d\theta
+            \int \frac{dx}{dt} \Hquad dt &= \int r(\theta) \;\frac{d\theta}{dt} \Hquad dt \\
+            \int dx &= \int r(\theta) \;d\theta \\
+            x(\theta) &= \int r(\theta) \;d\theta
         \end{align}
 
         Substituting $r$:
@@ -291,10 +291,10 @@
         \end{align}
 
         Let:
-        \begin{align*}
+        \begin{align}
             I_1 = \frac{3\sqrt{2}}{4} \int \cos (\frac{\pi}{4} + \theta) \Hquad d\theta \quad \text{,} \quad
             I_2 = \int \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \Hquad d\theta
-        \end{align*}
+        \end{align}
 
         Using compound angle identity:
         \begin{align}
@@ -307,14 +307,57 @@
         However, the $I_2$ integral is way trickier than the $I_1$ one and cannot be solved using simple methods learned during the IB mathematics, as it is an elliptic integral of the second kind\cite{elliptic_integral}. Therefore, it will be instead solved numerically using the Euler's method. 
 
         Euler's method states that:
-        \begin{align*}
-            y_{n+1} = y_n + h \cdot f(x_n, y_n) \\
-            x_{n+1} = x_n +h
-        \end{align*}
+        \begin{align}
+            x_{n+1} &= x_n + h \cdot x'(\theta_n) \quad , \quad
+            \theta_{n+1} = \theta_n +h
+        \end{align}
  
+        Given that:
         \begin{equation}
             x = \frac{3}{4} \cdot \frac{\sin(\theta) + \cos(\theta)}{\sqrt{2}} + \int \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \Hquad d\theta
         \end{equation}
+
+        Hence, the road for the rounded corner can be written as:
+        \begin{align}
+            x_{n+1} &= x_n + \frac{3}{4} \cdot \frac{\sin(\theta) + \cos(\theta)}{\sqrt{2}} +
+            h \cdot \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \\
+            y &= - \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) - \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \\
+            \theta_{n+1} &= \theta_n +h \quad , \quad - \text{arccot}(\frac{3}{4}) \leq \theta \leq \text{arccot}(\frac{3}{4}) - \frac{\pi}{2}
+        \end{align}
+
+        If we let $x_0 = 0$ and $h=0.001$, the road can be seen plotted on Figure~\ref{fig:corner_road} below:
+        \begin{figure}[H]
+            \includegraphics[width=\linewidth]{images/corner_road.png}
+            \caption{Road for the rounded corner}\label{fig:corner_road}
+        \end{figure}
+
+        Thanks to this approach, the minimum and maximum $x$ value can also be found easily:
+        \begin{align*}
+            x_{\text{min}} = -0.106 \quad , \quad x_{\text{max}} = 0.172
+        \end{align*}
+        % x_min -0.10586601717798204; x_max 0.17193061129916218
+
+        Thus, the ``center'' of this road piece (which is also its lowest point) has $x$ value:
+        \begin{align}
+            x = \frac{x_{\text{min}}+x_{\text{max}}}{2} = 0.0661
+        \end{align}
+        % x = 0.06606459412
+
+        Hence, to have the center of the piece at $x=0$, the road has to be shifted left by $0.0661$ and thus it can be seen on Figure~\ref{fig:corner_road_centered} below:
+        % \begin{align}
+        %     x_0 = \frac{-0.0661}{2} = -0.0331
+        % \end{align}
+        \begin{figure}[H]
+            \includegraphics[width=\linewidth]{images/centered_corner_road.png}
+            \caption{Centered rounded corner road}\label{fig:corner_road_centered}
+        \end{figure}
+
+        Now, to insert the new road piece into the whole road, the center of the corner piece has to be where the catenary curves intersect. Thus, the first such point will be at $x=\text{arsinh}(1)$ (from Equation~\ref{eq:x_cosh_end}). Therefore, the corner road part has to be shifted horizontally by additional $\text{arsinh}(1) \approx 0.881$ to the right. Combining this with the $0.0661$ shift to the left, we get in total a shift to the right by approximately $0.815$. Hence, a fragment of the final road can be seen on Figure~\ref{fig:corner_road_full} below: 
+
+        \begin{figure}[H]
+            \includegraphics[width=\linewidth]{images/road_with_corner.png}
+            \caption{Road for the square with rounded corners}\label{fig:corner_road_full}
+        \end{figure}
 
     % bibliography
     \newpage

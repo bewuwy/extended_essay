@@ -5,16 +5,17 @@ import numpy as np
 # x = np.arcsinh(t)
 # y = - np.sqrt(1 + t**2)
 
-x = np.linspace(-3, 3)
+thickness = 4
 
-x1 = np.linspace(-np.arcsinh(1), np.arcsinh(1))
-y1 = - np.cosh(x)
-plt.plot(x, y1)
-x2 = np.linspace(-3*np.arcsinh(1), -np.arcsinh(1))
-y2 = - np.cosh(x - 2*np.arcsinh(1))
-plt.plot(x, y2)
-y3 = - np.cosh(x + 2*np.arcsinh(1))
-plt.plot(x, y3)
+x = np.linspace(-3, 3, 3500)
+y_shift = 0.033
+
+y1 = - np.cosh(x) + y_shift
+plt.plot(x, y1, color="tab:cyan", linewidth=thickness)
+y2 = - np.cosh(x - 2*np.arcsinh(1)) + y_shift
+plt.plot(x, y2, color="tab:cyan", linewidth=thickness)
+# y3 = - np.cosh(x + 2*np.arcsinh(1))
+# plt.plot(x, y3, color="tab:cyan", linewidth=thickness)
 
 # y1, y2, y3 = [np.clip(i, -1.414, -1) for i in [y1, y2, y3]]
 
@@ -41,9 +42,11 @@ def square(x_start):
 # x4, y4 = square(1.2)
 # plt.plot(x4, y4)
 
-plt.ylim(-1.414, .5)
-plt.xlim(-3, 3)
+plt.ylim(-1.414, 0)
+plt.xlim(-1, 2.7)
 
 plt.gca().set_aspect('equal')
+
+import corner
 
 plt.show()
