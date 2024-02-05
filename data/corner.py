@@ -13,7 +13,9 @@ theta_start = - arctan(4/3)
 theta_stop = arctan(4/3) - pi/2 
 
 h = 0.001
-x_0 = 0.06606459412 * 1.5 + 0.693
+x_0 = 0.693 * 1.22
+
+y_shift = - 0.033
 
 x_min = 9999
 x_max = -9999
@@ -34,7 +36,7 @@ while cur_theta < theta_stop:
 
     cur_x = cur_i1 + cur_f
     x.append(cur_x)
-    y_list.append(cur_y)
+    y_list.append(cur_y + y_shift)
     theta.append(cur_theta)
     
     x_min = min(x_min, cur_x)
@@ -53,4 +55,5 @@ plt.plot(x, y_list, color="tab:red", linewidth=4)
 # set 1:1 aspect ratio
 plt.gca().set_aspect('equal')
 
-plt.show()
+if __name__ == "__main__":
+    plt.show()

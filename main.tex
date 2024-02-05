@@ -353,10 +353,15 @@
         \end{figure}
 
         Now, to insert the new road piece into the whole road, the center of the corner piece has to be where the catenary curves intersect. Thus, the first such point will be at $x=\text{arsinh}(1)$ (from Equation~\ref{eq:x_cosh_end}). Therefore, the corner road part has to be shifted horizontally by additional $\text{arsinh}(1) \approx 0.881$ to the right. Combining this with the $0.0661$ shift to the left, we get in total a shift to the right by approximately $0.815$. Hence, a fragment of the final road can be seen on Figure~\ref{fig:corner_road_full} below: 
-
         \begin{figure}[H]
             \includegraphics[width=\linewidth]{images/road_with_corner.png}
             \caption{Road for the square with rounded corners}\label{fig:corner_road_full}
+        \end{figure}
+
+        However, to make a 180 degree rotation, the square has to ``tumble over'' two times. Therefore, the catenaries and the ``corner parts'' have to repeat three and two times respectively. Hence, the full road with the rounded square can be seen on the Figure~\ref{fig:bridge_final}:
+        \begin{figure}[H]
+            \includegraphics[width=\linewidth]{images/road_with_square.png}
+            \caption{Final road plotted along with the square}\label{fig:bridge_final}
         \end{figure}
 
     % bibliography

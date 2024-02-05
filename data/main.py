@@ -7,15 +7,15 @@ import numpy as np
 
 thickness = 4
 
-x = np.linspace(-3, 3, 3500)
-y_shift = 0.033
+x = np.linspace(-3, 6, 3500)
+y_shift = 0 #0.033
 
 y1 = - np.cosh(x) + y_shift
 plt.plot(x, y1, color="tab:cyan", linewidth=thickness)
 y2 = - np.cosh(x - 2*np.arcsinh(1)) + y_shift
 plt.plot(x, y2, color="tab:cyan", linewidth=thickness)
-# y3 = - np.cosh(x + 2*np.arcsinh(1))
-# plt.plot(x, y3, color="tab:cyan", linewidth=thickness)
+y3 = - np.cosh(x - 4*np.arcsinh(1))
+plt.plot(x, y3, color="tab:cyan", linewidth=thickness)
 
 # y1, y2, y3 = [np.clip(i, -1.414, -1) for i in [y1, y2, y3]]
 
@@ -49,4 +49,5 @@ plt.gca().set_aspect('equal')
 
 import corner
 
-plt.show()
+if __name__ == "__main__":
+    plt.show()
