@@ -1,0 +1,26 @@
+## Work plan
+- [x] square bridge
+- - [x] simple rolling square
+- - - [x] finding polar form - straight line times 4
+- - - [x] finding relation between road and ”wheel”
+- - -  [x] get y(t), then find road equation in y(x) form
+- - - [x] catenary road = -cosh x
+- - [x] rounded square
+- - - [x] why rounded - gears teeth
+- - - [x] why rounded corners are hard - rolling on a circle, but centre of mass is outside of it
+- - - [x] calculating road for the rounded square
+- - - - [x] polar form of a rounded corner
+- - - - [-] symbolic solution
+- - - - - definite integration
+- - - - - elliptic integral of 2nd kind
+- - - - - cant get y(x)
+- - - - numerical solution
+- - - setting centre of mass to be at geometric centre (adding additional weight at the top of the bridge)
+- - - find location of gear teeth - roll the track around and trace intersection with bridge - inverse transformation of track around the bridge
+- - - calculating work needed to be done to roll the bridge - the centre of mass is actually 2inches below the geometric centre
+- triangle bridge
+- - normally cannot - too steep road and triangle crashes, but with rounded corners its possible
+- - the catenary curve is steeper, so more friction is needed
+- polygonal bridge
+- - pentagon and hexagon
+- conclusion
