@@ -1,3 +1,8 @@
+## TODO
+
+- change citation style to APA
+- add x, y labels to graphs
+
 ## Work plan
 
 ### introduction
