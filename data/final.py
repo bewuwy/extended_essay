@@ -1,9 +1,10 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 square_color = 'tab:blue'
 
 # define the thickness of the lines
-thickness = 3
+thickness = 4
 
 # plot line from (-0.75, 1) to (0.75, 1)
 plt.plot([-0.75, 0.75], [1, 1], color=square_color, linewidth=thickness)
@@ -31,17 +32,22 @@ plt.axis('equal')
 import main
 import corner
 
-# plt.ylim(-1.414, 1.614)
-plt.xlim(-1.1, 4.5)
+plt.ylim(-1.414, 1.614)
+plt.xlim(-1.1, 4 * np.arcsinh(1) + 1.1)
 
 # add second corner plot
-corner_x = corner.x
+corner_x = corner.x_list
 corner_y = corner.y_list
 
 # shift the corner plot to the right
-corner_x = [x + 1.77 for x in corner_x]
+corner_x = [x + 1.765 for x in corner_x]
 
-plt.plot(corner_x, corner_y, color="tab:red", linewidth=thickness)
+plt.plot(corner_x, corner_y, color="tab:cyan", linewidth=thickness)
+
+plt.xlabel('X')
+plt.ylabel('Y', rotation=0)
+plt.gca().xaxis.set_label_coords(1, -0.025)
+plt.gca().yaxis.set_label_coords(-0.025, 0.98)
 
 plt.show()
 

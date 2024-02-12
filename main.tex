@@ -8,6 +8,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{parskip}
+\usepackage{mathtools}
 
 \newcommand{\Hquad}{\hspace{0.5em}} 
 
@@ -18,6 +19,37 @@
 \onehalfspacing
 
 \setlength{\jot}{12pt} % vertical skips in equations
+
+% python snippets
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+% python snippets end
 
 \title{Exploring mathematics behind the Cody Dock bridge \\
     \large Extended essay \\
@@ -30,8 +62,7 @@
 \begin{document}
 
     \maketitle
-    % \newpage
-    \vspace{4pt}
+    \newpage
     \tableofcontents
     \newpage
     
@@ -62,7 +93,16 @@
         \footnotetext{Photo source: \url{https://newatlas.com/architecture/cody-dock-rolling-bridge/}}
 
 
-    \section{``Smoothly'' rolling square}
+        The Cody Dock bridge was constructed in 2023 in East London, replacing a much older and simpler drawbridge. It was designed by architects Thomas Randall-Page and Tim Lucas. The ``revolution'' in this bridge is how it rotates (or ``rolls'') to let boats pass under it. The whole bridge is like a wheel rolling smoothly on a perfectly built for it road. What is also interesting, that because of how little work is required to move the structure (and how rarely it needs to be turned), it is operated by a hand crank, requiring approximately 20 minutes of continuos cranking to completely roll over.\cite{bridge_newatlas} On Figure~\ref{fig:photo_cranking} below, a man in the back can be seen operating the hand crank.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\linewidth]{images/photo_cranking.png}
+            \caption[Rolling the bridge using the hand crank]{Rolling the bridge using the hand crank\footnotemark}\label{fig:photo_cranking}
+        \end{figure}
+        \footnotetext{Photo source: \url{https://newatlas.com/architecture/cody-dock-rolling-bridge/}}
+
+    \section{Defining ``smooth'' rolling}
 
         In order to even start the discussion, ``smooth rolling'' has to be defined. If we e.g.\ take a circle shape and roll it on a straight surface, then it will roll ``smoothly''~-~its center of mass will move only horizontally and not vertically. However, when a square is rolled on the same surface, its center of mass will move vertically as well and hence its movement will not be ``smooth''.
 
@@ -100,7 +140,7 @@
             v_{\text{axle}} &= r \frac{d\theta}{dt}
         \end{flalign*}
 
-        Thence (the speeds, not the velocities are equal, hence the absolute value):
+        Thus (the speeds, not the velocities are equal, hence the absolute value):
         \begin{align}
             \bigl|\frac{dx}{dt}\bigr| = \bigl|r \frac{d\theta}{dt}\bigr| \nonumber \\
             \frac{dx}{dt} = \pm\; r \frac{d\theta}{dt}
@@ -133,6 +173,8 @@
             \end{cases}
         \end{equation}
 
+    \section{Finding the road for a rolling square}
+
         Now, the parametric functions for a square need to be found in order to find the road curve. For the simplicity of this calculation let the side length of the square be 2. To find the equations it is easiest to start with just a single side of the square (starting at $(1, -1)$ and ending at $(1, 1)$). Therefore, x stays constant and y varies from -1 to 1. The parametric equations are as follows:
         \begin{align}
             x(t) = 1 \\
@@ -151,7 +193,7 @@
             \theta(t) &= \arctan\frac{t}{1} = \arctan(t)
         \end{align}
 
-        These equations may be used to substitute into Equation \ref{eq:road_1}, which is very easy for the $y$ part:
+        These equations may be used to substitute into Equation~\ref{eq:road_1}, which is very easy for the $y$ part:
         \begin{align}
             y &= -r = -\sqrt{1+t^2}
             % \frac{dx}{dt} &= r \frac{d\theta}{dt}
@@ -326,20 +368,22 @@
         \end{equation}
 
         The road equations for the rounded corner can be written as:
-        \begin{align}
-            x_{n+1} &= x_n + \frac{3}{4} \cdot \frac{\sin(\theta) + \cos(\theta)}{\sqrt{2}} +
+        \begin{equation}            
+            \begin{cases}
+            x_{n+1} = x_n + \frac{3}{4} \cdot \frac{\sin(\theta) + \cos(\theta)}{\sqrt{2}} +
             h \cdot \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \\
-            y &= - \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) - \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \\
-            \theta_{n+1} &= \theta_n +h \quad , \quad - \text{arccot}(\frac{3}{4}) \leq \theta \leq \text{arccot}(\frac{3}{4}) - \frac{\pi}{2}
-        \end{align}
+            y = - \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) - \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \\
+            \theta_{n+1} = \theta_n +h \quad , \quad - \text{arccot}(\frac{3}{4}) \leq \theta \leq \text{arccot}(\frac{3}{4}) - \frac{\pi}{2}
+            \end{cases} 
+        \end{equation}
 
-        If we let $x_0 = 0$ and $h=0.001$, the road can be seen plotted on Figure~\ref{fig:corner_road} below:
+        If we let $x_0 = 0$ and $h=0.001$, the x and y values can be calculated using the code seen in Appendix~\ref{app:euler_python}. By plotting those points, the road can be seen in Figure~\ref{fig:corner_road} below:
         \begin{figure}[H]
             \includegraphics[width=\linewidth]{images/corner_road.png}
             \caption{Road for the rounded corner}\label{fig:corner_road}
         \end{figure}
 
-        Thanks to this approach, the minimum and maximum $x$ value can also be found easily:
+        It can be seen that the road is not centered - its lowest point is not at $x=0$. Thanks to the programmatic approach, the minimum and maximum $x$ value can be found easily:
         \begin{align*}
             x_{\text{min}} = -0.106 \quad , \quad x_{\text{max}} = 0.172
         \end{align*}
@@ -360,21 +404,74 @@
             \caption{Centered rounded corner road}\label{fig:corner_road_centered}
         \end{figure}
 
-        Now, to insert the new road piece into the whole road, the center of the corner piece has to be where the catenary curves intersect. Thus, the first such point will be at $x=\text{arsinh}(1)$ (from Equation~\ref{eq:x_cosh_end}). Therefore, the corner road part has to be shifted horizontally by additional $\text{arsinh}(1) \approx 0.881$ to the right. Combining this with the $0.0661$ shift to the left, we get in total a shift to the right by approximately $0.815$. Hence, a fragment of the final road can be seen on Figure~\ref{fig:corner_road_full} below: 
+        To insert the new road piece into the whole road, its center has to be where the catenary curves intersect. The first such point is at $x=\text{arsinh}(1)$ (from Equation~\ref{eq:x_cosh_end}). Therefore, the corner road has to be shifted horizontally by additional $\text{arsinh}(1) \approx 0.881$ to the right. Combining this with the $0.0661$ shift to the left, we get in total a shift to the right by approximately $0.815$. Hence, a fragment of the final road can be seen on Figure~\ref{fig:corner_road_full} below:
         \begin{figure}[H]
             \includegraphics[width=\linewidth]{images/road_with_corner.png}
             \caption{Road for the square with rounded corners}\label{fig:corner_road_full}
         \end{figure}
 
-        However, to make a 180 degree rotation, the square has to ``tumble over'' two times. Therefore, the catenaries and the ``corner parts'' have to repeat three and two times respectively. Hence, the full road with the rounded square can be seen on the Figure~\ref{fig:bridge_final}:
+        For the bridge to make a 180 degree rotation, the square has to ``tumble over'' two times. Therefore, the catenaries and the ``corner parts'' have to repeat three and two times respectively. Given that from the center of the catenary to the intersection is the distance $\text{arsinh}(1)$, the second corner part will be at $x=3\text{arsinh}(1)$. Hence, the full road with the rounded square can be seen on the Figure~\ref{fig:bridge_full}:
         \begin{figure}[H]
-            \includegraphics[width=\linewidth]{images/road_with_square.png}
-            \caption{Final road plotted along with the square}\label{fig:bridge_final}
+            \centering
+            \includegraphics[width=0.8\linewidth]{images/road_with_square.png}
+            \caption{Full road plotted along with the bridge}\label{fig:bridge_full}
+        \end{figure}
+
+        Additionally, since the bridge should stand still on the beginning and end of the road, the catenary curves can be restricted to $x \in [0, 4\text{arsinh}(1)]$. A $y=-1$ line can be thus added for $x \in [-1, 0] \cup [4\text{arsinh}(1), 4\text{arsinh}(1)+1]$. Given that the first catenary curve intersects the corner road at $x \approx \text{arsinh}(1) - 0.15$, the catenaries were restricted to $y\in [-\text{cosh}(\text{arsinh}(1) - 0.15), -1] \approx y \in [-1.28, -1]$. Hence, the final road can be seen in Figure~\ref{fig:bridge_final} below:
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\linewidth]{images/road_square_final.png}
+            \caption{Final road for the rounded square}\label{fig:bridge_final}
         \end{figure}
 
     % bibliography
     \newpage
     \bibliographystyle{unsrt}
     \bibliography{refs}
+
+    % appendix
+    \newpage
+    \appendix
+
+    \section{Euler's approximation Python code}\label{app:euler_python}
+
+    \begin{lstlisting}[language=python]
+from numpy import arctan, sqrt, sin, cos, pi
+
+def x_2_prim(theta): # derivative of 2nd part of x function
+    return sqrt( 1/16 - 9/8 * (sin(pi/4 + theta) )**2 )
+
+def x_1(theta): # 1st part of x function
+    return 3/4 * (sin(theta) + cos(theta))/sqrt(2)
+
+def y(theta): # y function
+    return -(3*sqrt(2))/4 * cos(theta + pi/4) - sqrt( 1/16 - 9/8 * (sin(pi/4 + theta) )**2 )
+
+theta_start = - arctan(4/3)
+theta_stop = arctan(4/3) - pi/2 
+
+h = 0.001
+x_0 = 0
+
+cur_theta = theta_start
+cur_x2 = x_0
+
+x_list = []
+y_list = []
+
+while cur_theta < theta_stop:
+    cur_x_2_prim = x_2_prim(cur_theta)    
+    cur_x2 += h * cur_x_2_prim
+    
+    cur_x = x_1(cur_theta) + cur_x2
+    
+    x_list.append(cur_x)
+    y_list.append(y(cur_theta))
+
+    cur_theta += h
+
+print("min x", min(x_list))
+print("max x", max(x_list))\end{lstlisting}
 
 \end{document}

@@ -7,15 +7,17 @@ import numpy as np
 
 thickness = 4
 
-x = np.linspace(-3, 6, 3500)
-y_shift = 0 #0.033
+x1 = np.linspace(0, np.arcsinh(1) - 0.13)
+y1 = - np.cosh(x1)
+plt.plot(x1, y1, color="tab:cyan", linewidth=thickness)
 
-y1 = - np.cosh(x) + y_shift
-plt.plot(x, y1, color="tab:cyan", linewidth=thickness)
-y2 = - np.cosh(x - 2*np.arcsinh(1)) + y_shift
-plt.plot(x, y2, color="tab:cyan", linewidth=thickness)
-y3 = - np.cosh(x - 4*np.arcsinh(1))
-plt.plot(x, y3, color="tab:cyan", linewidth=thickness)
+x2 = np.linspace(np.arcsinh(1) + 0.13, 3*np.arcsinh(1) - 0.13)
+y2 = - np.cosh(x2- 2*np.arcsinh(1))
+plt.plot(x2, y2, color="tab:cyan", linewidth=thickness)
+
+x3 = np.linspace(3*np.arcsinh(1) + 0.13, 4*np.arcsinh(1))
+y3 = - np.cosh(x3 - 4*np.arcsinh(1))
+plt.plot(x3, y3, color="tab:cyan", linewidth=thickness)
 
 # y1, y2, y3 = [np.clip(i, -1.414, -1) for i in [y1, y2, y3]]
 
@@ -41,6 +43,14 @@ def square(x_start):
 
 # x4, y4 = square(1.2)
 # plt.plot(x4, y4)
+
+x_line = np.linspace(-1, 0)
+y_line = np.repeat(-1, len(x_line))
+plt.plot(x_line, y_line, color="tab:cyan", linewidth=thickness)
+
+x_line2 = np.linspace(4 * np.arcsinh(1), 4 * np.arcsinh(1) + 1)
+y_line2 = np.repeat(-1, len(x_line2))
+plt.plot(x_line2, y_line2, color="tab:cyan", linewidth=thickness)
 
 plt.ylim(-1.414, 0)
 plt.xlim(-1, 2.7)
