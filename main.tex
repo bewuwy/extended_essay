@@ -54,7 +54,7 @@
 \title{Exploring mathematics behind the Cody Dock bridge \\
     \large Extended essay \\
     \normalsize Research Question: How can catenary curves be used in construction of non-circular, ``rolling'' bridges? \\
-    \vspace{12pt} Word count: 1775}
+    \vspace{12pt} Word count: 2172}
 
 \date{}
 \author{}
@@ -87,20 +87,13 @@
 
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.75\linewidth]{images/photo_cranking.png}
+            \includegraphics[width=0.5\linewidth]{images/photo_cranking.png}
             \caption[Rolling the bridge using the hand crank]{Rolling the bridge using the hand crank\footnotemark}\label{fig:photo_cranking}
         \end{figure}
         \footnotetext{Photo source: \url{https://newatlas.com/architecture/cody-dock-rolling-bridge/}}
 
 
         The Cody Dock bridge was constructed in 2023 in East London, replacing a much older and simpler drawbridge. It was designed by architects Thomas Randall-Page and Tim Lucas. The ``revolution'' in this bridge is how it rotates (or ``rolls'') to let boats pass under it. The whole bridge is like a wheel rolling smoothly on a perfectly built for it road. What is also interesting, that because of how little work is required to move the structure (and how rarely it needs to be turned), it is operated by a hand crank, requiring approximately 20 minutes of continuos cranking to completely roll over.\cite{bridge_newatlas} On Figure~\ref{fig:photo_cranking} below, a man in the back can be seen operating the hand crank.
-
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.5\linewidth]{images/photo_cranking.png}
-            \caption[Rolling the bridge using the hand crank]{Rolling the bridge using the hand crank\footnotemark}\label{fig:photo_cranking}
-        \end{figure}
-        \footnotetext{Photo source: \url{https://newatlas.com/architecture/cody-dock-rolling-bridge/}}
 
     \section{Defining ``smooth'' rolling}
 
@@ -243,7 +236,7 @@
             y(x) = -\cosh(x)
         \end{align}
 
-        Which is actually an inverted catenary curve. This is a shape that is formed by a hanging chain, which is a very common shape in architecture. It can be seen graphed below:
+        The obtained road function is actually an inverted catenary curve ($\cosh(x)$ is the catenary curve function). What is interesting is that the catenary is a curve formed by a hanging chain supported at its ends (even its name ``catenary'' is derived from latin word for ``chain'').\cite{mathworld_catenary} The curve is also a very common shape in architecture. It can be seen graphed below along with some square sides:
         
         \begin{figure}[H]
             \centering
@@ -307,7 +300,7 @@
         \end{equation}
         \[- \text{arccot}(1-b) \leq \theta \leq \text{arccot}(1-b) - \frac{\pi}{2}\]
 
-        Substituting $b=0.25$, the polar form of the rounded square is found:
+        Substituting $b=0.25$ (which is the real value used for the Cody Dock bridge\cite{bridge_wolfram}), the polar form of the rounded square is found:
         \begin{equation}
             r(\theta) = \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) + \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
         \end{equation}
@@ -370,7 +363,7 @@
         The road equations for the rounded corner can be written as:
         \begin{equation}            
             \begin{cases}
-            x_{n+1} = x_n + \frac{3}{4} \cdot \frac{\sin(\theta) + \cos(\theta)}{\sqrt{2}} +
+            x_{n+1} = \frac{3}{4} \cdot \frac{\sin(\theta) + \cos(\theta)}{\sqrt{2}} + x_n +
             h \cdot \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \\
             y = - \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) - \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \\
             \theta_{n+1} = \theta_n +h \quad , \quad - \text{arccot}(\frac{3}{4}) \leq \theta \leq \text{arccot}(\frac{3}{4}) - \frac{\pi}{2}
@@ -413,17 +406,42 @@
         For the bridge to make a 180 degree rotation, the square has to ``tumble over'' two times. Therefore, the catenaries and the ``corner parts'' have to repeat three and two times respectively. Given that from the center of the catenary to the intersection is the distance $\text{arsinh}(1)$, the second corner part will be at $x=3\text{arsinh}(1)$. Hence, the full road with the rounded square can be seen on the Figure~\ref{fig:bridge_full}:
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.8\linewidth]{images/road_with_square.png}
+            \includegraphics[width=0.75\linewidth]{images/road_with_square.png}
             \caption{Full road plotted along with the bridge}\label{fig:bridge_full}
         \end{figure}
 
-        Additionally, since the bridge should stand still on the beginning and end of the road, the catenary curves can be restricted to $x \in [0, 4\text{arsinh}(1)]$. A $y=-1$ line can be thus added for $x \in [-1, 0] \cup [4\text{arsinh}(1), 4\text{arsinh}(1)+1]$. Given that the first catenary curve intersects the corner road at $x \approx \text{arsinh}(1) - 0.15$, the catenaries were restricted to $y\in [-\text{cosh}(\text{arsinh}(1) - 0.15), -1] \approx y \in [-1.28, -1]$. Hence, the final road can be seen in Figure~\ref{fig:bridge_final} below:
+        Additionally, since the bridge should stand still on the beginning and end of the road, the catenary curves can be restricted to $x \in [0, 4\text{arsinh}(1)]$. A $y=-1$ line can be thus added for $x \in [-1, 0] \cup [4\text{arsinh}(1), 4\text{arsinh}(1)+1]$. Given that the first catenary curve intersects the corner road at $x \approx \text{arsinh}(1) - 0.15$ (The center of the road piece is at $x=\text{arsinh}(1)$ and the width of this piece is around $0.3$), the catenaries were restricted to $y\in [-\text{cosh}(\text{arsinh}(1) - 0.15), -1] \approx y \in [-1.28, -1]$. Hence, the final road can be seen in Figure~\ref{fig:bridge_final} below:
 
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\linewidth]{images/road_square_final.png}
             \caption{Final road for the rounded square}\label{fig:bridge_final}
         \end{figure}
+
+        Thus, by using finding the polar form of the rounded corner and then approximating its road fragment, a full road (which should have the same shape as the one currently in London) was calculated. This can be seen visually in the Figure~\ref{fig:masterplan_overlayed} below:
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\linewidth]{images/masterplan_overlayed.png}
+            \caption[Obtained road overlayed on top of the official masterplan]{Obtained road overlayed on top of the official masterplan\footnotemark}\label{fig:masterplan_overlayed}
+        \end{figure}
+        \footnotetext{Masterplan photo source: \url{https://codydock.org.uk/cody-dock-masterplan/}}
+
+    \section{Finding roads for different polygonal wheels}
+
+        It may also be interesting to find the roads for polygons other than a simple square. Thus, it may be interesting to start with the triangle, as a normal (not-rounded) triangle cannot physically have a ``perfect road'', as the road is so steep, that the triangle crashes into it. This situation can be seen in Figure~\ref{fig:triangle_crash} below:
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{images/triangle_wheel.jpg}
+            \caption{Triangle crashing into its own road\cite{Hall_Wagon_1992}}\label{fig:triangle_crash}
+        \end{figure}
+
+        However, when the triangle is rounded at the corners enough, it can successfully roll.
+
+    \subsection{Conclusions}
+
+        Catenaries
 
     % bibliography
     \newpage
@@ -432,9 +450,11 @@
 
     % appendix
     \newpage
+    \section{Appendix}
     \appendix
+    \renewcommand{\thesubsection}{\Alph{subsection}}
 
-    \section{Euler's approximation Python code}\label{app:euler_python}
+    \subsection{Euler's approximation Python code}\label{app:euler_python}
 
     \begin{lstlisting}[language=python]
 from numpy import arctan, sqrt, sin, cos, pi
