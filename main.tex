@@ -10,6 +10,7 @@
 \usepackage{parskip}
 \usepackage{mathtools}
 \usepackage{gensymb}
+\usepackage{subcaption}
 
 \newcommand{\Hquad}{\hspace{0.5em}} 
 
@@ -57,7 +58,7 @@
 \title{Exploring mathematics behind the Cody Dock bridge \\
     \large Extended essay \\
     \normalsize Research Question: How can catenary curves be used in construction of non-circular, ``rolling'' bridges? \\
-    \vspace{12pt} Word count: 2417}
+    \vspace{12pt} Word count: 2925}
 
 \date{}
 \author{}
@@ -501,9 +502,78 @@
             x = \pm \text{arsinh}\sqrt{3} \approx \pm 1.317
         \end{equation}
 
-    \section{Conclusions}
+        Hence, for the first catenary:
+        \begin{align}
+            \begin{cases}
+                y = -\cosh(x) \\
+                x \in [-\text{arsinh}\sqrt{3}, \text{arsinh}\sqrt{3}]
+            \end{cases}
+        \end{align}
 
-        Catenaries are super totally awesome and other clever conclusions!
+        Thus, the following road was obtained:
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\linewidth]{images/triangle_road.png}
+            \caption{Road for an equilateral triangle}
+        \end{figure}
+
+        The ``radius'' of the triangle (distance from its center to one of the vertices) can be calculated by:
+        \begin{align}
+            r = | -\cosh( \text{arsinh}(\sqrt{3}) ) | \\
+            r = | -2 | = 2
+        \end{align}
+
+        Then from some geometry and the cosine rule, the side of triangle $a$ can be found:
+        \begin{align}
+            a^2 = 2r^2 (1 - \cos(\frac{2}{3}\pi)) \\
+            a^2 = 2r^2 (1 + \frac{1}{2}) = 3r^2 \\
+            a = \sqrt{3} \cdot r = 2\sqrt{3}
+        \end{align}
+
+        Hence, the triangle can be added on top of the road:
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\linewidth]{images/tirangle_road_with.png}
+            \caption{Triangle bridge on top of its road}
+        \end{figure}
+
+        It can immediately be seen that the side of the triangle is much larger than the width of one catenary ($2\sqrt{3} > 2\text{arsinh}\sqrt{3}$), which visually shows why the triangle crashes into its own road and is thus unable to rotate about it.
+
+        Moreover, a triangular shape is not a good pick for a bridge, as when it would be rotated by $180\degree$ so that ships could swim beneath it, it would stand on a vertex. Hence, this solution would be very dangerous in real life due to instability.
+
+    \section{Possible further research}
+
+        Another very interesting step during the design of the Cody Dock bridge was finding the precise location and angle of cuts in the bridge, so it can then perfectly fit the ``teeth'' on the road. This process can be seen in Figures~\ref{fig:teeth1} and~\ref{fig:teeth2} below:
+
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{0.49\textwidth}
+            \centering
+            \includegraphics[width = \textwidth]{images/bridge_teeth_1.jpg}
+            \caption{Rotating the road around the bridge}\label{fig:teeth1}
+            \end{subfigure}
+            \begin{subfigure}{0.49\textwidth}
+            \centering
+            \includegraphics[width = \textwidth]{images/bridge_teeth_2.jpg}
+            \caption{Making cuts in the bridge}\label{fig:teeth2}
+            \end{subfigure}
+
+            \caption{Finding location and angle of ``teeth''\cite{parker.2023}}
+        \end{figure}
+     
+        By ``rolling'' the track instead of bridge, the resultant intersection of the track path and bridge frame create ideal points to make the cut-outs, so that the bridge can ideally miss the pins in the road while rolling.
+        
+        This concept is very fascinating and useful when dealing with rolling structure in real world, but the Mathematics behind it are very much out of scope of this essay. However, expanding on this topic might have been intriguing.
+
+    \section{Conclusion}
+
+        Catenary curves are usually thought of as curves that can describe behaviours of chains pulled down by gravity. That is exactly what they do, but there are still applications for them outside of this area.
+
+        When designing perfect roads for non-circular shapes, they become very useful, irrespective of the polygon that the ``wheel'' is. However, when we try to apply those concepts of rolling polygons in the real world, like the architects of Cody Dock bridge did, some adjustments have to be made.
+
+        Ironically, to make the non-circular rolling bridges a reality, circles have to be added to them. Thanks to those rounded corners the pressure at the vertices can be decreased, but all at a cost of the catenaries. The roads required for circles, which have their mass centers outside of them, are way more complicated than simple catenaries. Hence, in the real world, when physics come into play, the catenaries seem to be not enough. More sophisticated integration methods (or simply approximations) are required to find the not-easy road fragments.
+
+        Even though the innovations that the catenaries bring into the world of non-circular wheels are not very practical, they show that Mathematics as a piece of knowledge is very interconnected and those connections appear even where we least expect them. Moreover, using them in such unusual ways can be great for artists or engineers (as in the Cody Dock case) trying to convey some message. Overall, the use of catenaries is needed when constructing non-circular, ``rolling'' bridges and perhaps in the future many more non-practical structures.
 
     % bibliography
     \newpage

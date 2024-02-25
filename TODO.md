@@ -30,7 +30,7 @@
 - calculating work needed to be done to roll the bridge - the centre of mass is actually 2inches below the geometric centre
 
 ### triangle bridge
-- normally cannot - too steep road and triangle crashes, but with rounded corners its possible
+- [x] normally cannot - too steep road and triangle crashes, but with rounded corners its possible
 - the catenary curve is steeper, so more friction is needed
 
 ### polygonal bridge
