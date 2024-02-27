@@ -579,10 +579,12 @@
     \newpage
     \bibliographystyle{apalike}
     \bibliography{refs}
+    \addcontentsline{toc}{section}{\protect\numberline{}References}
 
     % appendix
     \newpage
-    \section{Appendix}
+    \section*{Appendix}
+    \addcontentsline{toc}{section}{\protect\numberline{}Appendix}
     \appendix
     \renewcommand{\thesubsection}{\Alph{subsection}}
 
