@@ -4,7 +4,7 @@ def x_2_prim(theta): # derivative of 2nd part of x function
     return sqrt( 1/16 - 9/8 * (sin(pi/4 + theta) )**2 )
 
 def x_1(theta): # 1st part of x function
-    return 3/4 * (sin(theta) + cos(theta))/sqrt(2)
+    return 3/4 * (sin(theta) + cos(theta))
 
 def y(theta): # y function
     return -(3*sqrt(2))/4 * cos(theta + pi/4) - sqrt( 1/16 - 9/8 * (sin(pi/4 + theta) )**2 )

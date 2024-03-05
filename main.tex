@@ -415,33 +415,62 @@
             I_1 &= \frac{3\sqrt{2}}{4} \int \cos (\frac{\pi}{4}) \cos(\theta) - \sin(\frac{\pi}{4}) \sin(\theta) \Hquad d\theta \\
             &= \frac{3\sqrt{2}}{4} \int \frac{1}{\sqrt{2}} \cos(\theta) - \frac{1}{\sqrt{2}} \sin(\theta) \Hquad d\theta \\
             &= \frac{3\sqrt{2}}{4} \cdot \frac{1}{\sqrt{2}} \int \cos(\theta) - \sin(\theta) \Hquad d\theta \\
-            I_1 &= \frac{3}{4} \cdot \frac{\sin(\theta) + \cos(\theta)}{\sqrt{2}} + c
+            I_1 &= \frac{3}{4} (\sin(\theta) + \cos(\theta)) + c
         \end{align}
 
-        However, the $I_2$ integral is way trickier than the $I_1$ one and cannot be solved using simple methods learned during the IB Mathematics course, as it is an elliptic integral of the second kind\cite{elliptic_integral}. Therefore, it will be instead solved numerically using the Euler's method. 
+        However, the $I_2$ integral is way trickier than the $I_1$ one and cannot be solved using simple methods learned during the IB Mathematics course, as it is an elliptic integral of the second kind\cite{elliptic_integral}. Therefore, it will be instead solved numerically using the Euler's method. For clarity of notation, let $v = I_2$.
 
-        Euler's method states that:
+        Euler's method states that for a very small $h$:
         \begin{align}
-            x_{n+1} &= x_n + h \cdot x'(\theta_n) \quad , \quad
+            v_{n+1} &= v_n + h \cdot v'(\theta_n) \quad , \quad
             \theta_{n+1} = \theta_n +h
         \end{align}
+
+        However, this expression will be difficult to use together with $I_1(\theta)$, so we will have to also express $v$ in terms of $\theta$ instead of some arbitrary $n$. The derivative of $v$ can be found really easily:
+        \begin{align}
+            v'(\theta) = \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
+        \end{align}
+
+        Using the definition of derivative:
+        \begin{align}
+            v'(\theta) = \lim\limits_{h \to 0} \frac{v(\theta)-v(\theta-h)}{h} &= \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
+        \end{align}
+
+        Approximating $h$ in a similar manner to the Euler's method ($h$ is a very small number):
+        \begin{align}
+            \frac{v(\theta)-v(\theta-h)}{h} &= \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \\
+            v(\theta)-v(\theta-h) &= h \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \\
+            v(\theta) = v(\theta-h) &+ h \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
+        \end{align}
+
+        % Hence, for some $v_0$:
+        % \begin{align}
+        %     v_{n+1} = v_n + h \cdot \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \quad , \quad
+        %     \theta_{n+1} = \theta_n +h
+        % \end{align}
+
+        % Which can be written as:
+        % \begin{equation}
+        %     v(\theta) = v(\theta - h) + h \cdot \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
+        % \end{equation}
  
         Given that:
         \begin{equation}
-            x = \frac{3}{4} \cdot \frac{\sin(\theta) + \cos(\theta)}{\sqrt{2}} + \int \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \Hquad d\theta
+            x(\theta) = \frac{3}{4} (\sin\theta + \cos\theta) + \int \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \Hquad d\theta = I_1(\theta) + v(\theta)
         \end{equation}
 
         The road equations for the rounded corner can be written as:
         \begin{equation}            
             \begin{cases}
-            x_{n+1} = \frac{3}{4} \cdot \frac{\sin(\theta) + \cos(\theta)}{\sqrt{2}} + x_n +
-            h \cdot \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \\
-            y = - \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) - \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \\
-            \theta_{n+1} = \theta_n +h \quad , \quad - \text{arccot}(\frac{3}{4}) \leq \theta \leq \text{arccot}(\frac{3}{4}) - \frac{\pi}{2}
+            x(\theta) = \frac{3}{4} (\sin\theta + \cos\theta) + v(\theta) \\ % v_n \quad \text{where}\; n = \frac{\theta}{h} \\
+            v(\theta) = v(\theta-h) + h \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \\
+            % v_n = v_{n-1} + h \cdot \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \\
+            y(\theta) = - \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) - \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \\
+            \theta \in [- \text{arccot}(\frac{3}{4}), \;\text{arccot}(\frac{3}{4}) - \frac{\pi}{2}]
             \end{cases} 
         \end{equation}
 
-        If we let $x_0 = 0$ and $h=0.001$, the x and y values can be calculated using the code seen in Appendix~\ref{app:euler_python}. By plotting those points, the road can be seen in Figure~\ref{fig:corner_road} below:
+        If we let $v(0) = 0$ and $h=0.001$, the x and y values can be calculated using the code seen in Appendix~\ref{app:euler_python}. By plotting those points, the road can be seen in Figure~\ref{fig:corner_road} below:
         \begin{figure}[H]
             \includegraphics[width=\linewidth]{images/corner_road.png}
             \caption{Road for the rounded corner}\label{fig:corner_road}
@@ -633,7 +662,7 @@ def x_2_prim(theta): # derivative of 2nd part of x function
     return sqrt( 1/16 - 9/8 * (sin(pi/4 + theta) )**2 )
 
 def x_1(theta): # 1st part of x function
-    return 3/4 * (sin(theta) + cos(theta))/sqrt(2)
+    return 3/4 * (sin(theta) + cos(theta))
 
 def y(theta): # y function
     return -(3*sqrt(2))/4 * cos(theta + pi/4) - sqrt( 1/16 - 9/8 * (sin(pi/4 + theta) )**2 )
