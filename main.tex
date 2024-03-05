@@ -328,13 +328,47 @@
         \end{figure}
 
         % TODO derive polar form of the corner
-        The corners have the polar form\cite{bridge_wolfram} [Here maybe also add derivation?]:
+        The corners have the polar form\cite{bridge_wolfram}:
         \begin{equation}
             r = (1-b)\sqrt{2} \cos (\frac{\pi}{4} + \theta) + \sqrt{b^2 - 2(1-b)^2 \sin^2 (\frac{\pi}{4}+\theta)}
         \end{equation}
         \[- \text{arccot}(1-b) \leq \theta \leq \text{arccot}(1-b) - \frac{\pi}{2}\]
 
-        Substituting $b=0.25$ (which is the real value used for the Cody Dock bridge\cite{bridge_wolfram}), the polar form of the rounded square is found:
+        This equation can be derived using some trigonometry. Let $O$ be the origin point $(0,0)$, $A$ be the centre of the circle - $A =(1-b,b-1)$ and $B$ be an arbitrary point on the rounded corner. Then, the $r$ we are looking for is the length of $OB$. The situation can be seen in Figure~\ref{fig:corner_cos_rule}.
+        
+        \begin{figure}[H]
+            \centering \includegraphics[width=0.5\linewidth]{images/corner_cos_rule.png}
+            \caption[Corner of the square with triangle OBA]{Corner of the square with triangle OBA\footnotemark}\label{fig:corner_cos_rule}
+        \end{figure}
+        \footnotetext{This diagram was created using the \textit{GeoGebra} software}
+
+        Now, using the property of diagonal of a square $|OA| = \sqrt{2} (1-b)$. For clarity, let $\bar{b} = (1-b)$. Then, $|OA| = \sqrt{2}\;\bar{b}$. Let $\alpha = \angle BOA$, then by cosine rule:
+        \begin{align}
+            b^2 = (\sqrt{2}\;\bar{b})^2 + r^2 - 2 r \sqrt{2} \;\bar{b} \cos(\alpha) \\
+            b^2 = 2\bar{b}^2 + r^2 - 2 \sqrt{2} r \bar{b} \cos(\alpha)
+        \end{align}
+        Thus, we obtain a quadratic equation with $r$:
+        \begin{align}
+            r^2 - 2 \sqrt{2}\;\bar{b} \cos(\alpha) r + 2\bar{b}^2 - b^2 = 0 \\
+            \Delta = (- 2 \sqrt{2}\;\bar{b} \cos(\alpha))^2 - 4 (2\bar{b}^2 - b^2) \\
+            \Delta = 8\bar{b}^2 \cos^2(\alpha) - 8\bar{b}^2 + 4b^2 \\
+            \Delta = 8\bar{b}^2 (1 - \sin^2(\alpha)) - 8\bar{b}^2 + 4b^2 \\
+            \Delta = 4b^2 - 8\bar{b}^2 \sin^2(\alpha) \\
+            \sqrt{\Delta} = 2 \sqrt{b^2 - 2\bar{b}^2 \sin^2(\alpha)}
+        \end{align}
+        Hence:
+        \begin{align}
+            r = \frac{2 \sqrt{2}\;\bar{b} \cos(\alpha) \pm 2 \sqrt{b^2 - 2\bar{b}^2 \sin^2(\alpha)}}{2} \\
+            r = \sqrt{2}\;\bar{b} \cos(\alpha) \pm \sqrt{b^2 - 2\bar{b}^2 \sin^2(\alpha)}
+        \end{align}
+        The radius $r$ of the polar form has to be positive, so:
+        \begin{align}
+            r = \sqrt{2}\;\bar{b} \cos(\alpha) + \sqrt{b^2 - 2\bar{b}^2 \sin^2(\alpha)}
+        \end{align}
+
+        By making the base polar axis to be at angle $-\frac{\pi}{4}$ to the x-axis, the angle $\alpha = \theta + \frac{\pi}{4}$. 
+
+        Substituting $b=0.25$, which is the real value used for the Cody Dock bridge\cite{bridge_wolfram}, the polar form of the rounded square is found:
         \begin{equation}
             r(\theta) = \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) + \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
         \end{equation}
