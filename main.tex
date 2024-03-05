@@ -658,32 +658,31 @@
     \begin{lstlisting}[language=python]
 from numpy import arctan, sqrt, sin, cos, pi
 
-def x_2_prim(theta): # derivative of 2nd part of x function
+def x_2_prim(theta): # derivative of 2nd part of x function (v')
     return sqrt( 1/16 - 9/8 * (sin(pi/4 + theta) )**2 )
 
-def x_1(theta): # 1st part of x function
+def x_1(theta): # 1st part of x function (I_1)
     return 3/4 * (sin(theta) + cos(theta))
 
 def y(theta): # y function
-    return -(3*sqrt(2))/4 * cos(theta + pi/4) - sqrt( 1/16 - 9/8 * (sin(pi/4 + theta) )**2 )
+    return -(3*sqrt(2))/4 * cos(theta + pi/4) - sqrt( 1/16 - 9/8 * (sin(pi/4 + theta))**2 )
 
-theta_start = - arctan(4/3)
+theta_start = -arctan(4/3)
 theta_stop = arctan(4/3) - pi/2 
 
 h = 0.001
-x_0 = 0
+v_0 = 0 # starting value of v, v(-arctan(4/3))
 
 cur_theta = theta_start
-cur_x2 = x_0
+cur_v = v_0
 
 x_list = []
 y_list = []
 
-while cur_theta < theta_stop:
-    cur_x_2_prim = x_2_prim(cur_theta)    
-    cur_x2 += h * cur_x_2_prim
+while cur_theta < theta_stop:    
+    cur_v += h * x_2_prim(cur_theta)
     
-    cur_x = x_1(cur_theta) + cur_x2
+    cur_x = x_1(cur_theta) + cur_v
     
     x_list.append(cur_x)
     y_list.append(y(cur_theta))
