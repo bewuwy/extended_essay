@@ -1,12 +1,12 @@
 ## TODO
 
-- change citation style to APA
+- [x] change citation style to APA
 - add x, y labels to graphs
 
 ## Work plan
 
 ### introduction
-- idk man sth
+- [x] idk man sth
 
 ### square bridge
 - [x] finding polar form - straight line times 4
@@ -18,15 +18,12 @@
  - [x] why rounded - gears teeth
  - [x] why rounded corners are hard - rolling on a circle, but centre of mass is outside of it
 - [x] polar form of a rounded corner
-- [-] symbolic solution
-- - definite integration
-- - elliptic integral of 2nd kind
-- - cant get y(x)
+- [-] (not possible) symbolic solution - not possible
 - [x] numerical solution
 
 ### real bridge
 - setting centre of mass to be at geometric centre (adding additional weight at the top of the bridge)
-- find location of gear teeth - roll the track around and trace intersection with bridge - inverse transformation of track around the bridge
+- [x] find location of gear teeth - roll the track around and trace intersection with bridge - inverse transformation of track around the bridge
 - calculating work needed to be done to roll the bridge - the centre of mass is actually 2inches below the geometric centre
 
 ### triangle bridge
@@ -37,4 +34,4 @@
 - pentagon and hexagon
 
 ### conclusion
-- idk man
+- [x] idk man
