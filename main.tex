@@ -72,7 +72,7 @@
     
     \section{Introduction}
 
-        Bridges are the ``structures that span horizontally between supports, whose function is to carry vertical loads''\cite{bridge_encyplopedia}. They allow us people to travel more easily and by this, they connect us. They have already existed for thousands of years, yet there is still so little of real innovation in their design.
+        Bridges are the ``structures that span horizontally between supports, whose function is to carry vertical loads''~\cite{bridge_encyplopedia}. They allow us people to travel more easily and by this, they connect us. They have already existed for thousands of years, yet there is still so little of real innovation in their design.
     
         That is what the Cody Dock bridge is for me: a change. For once, the simplicity of a drawbridge was overruled by (quite literally) a simple revolution. The artists and architects who designed it wanted for it to be different from the thousands or even millions of other bridges. To achieve this, they used really interesting mathematics, which I will be investigating in this essay. Those innovators created one of the most unique drawbridges (if it even can be called a ``draw''bridge) in the world.
 
@@ -87,7 +87,7 @@
 
         I also believe, that this bridge is a sort of mathematical phenomena existing in the real world. It is using the generally forgotten field of catenary curves to create a functional art piece, perhaps to inspire others to explore the mathematics behind it.
 
-        The Cody Dock bridge was constructed in 2023 in East London, replacing a much older and simpler drawbridge. It was designed by architects Thomas Randall-Page and Tim Lucas. The ``revolution'' in this bridge is how it rotates (or ``rolls'') to let boats pass under it. The whole bridge is like a wheel rolling smoothly on a perfectly built for it road. What is also interesting, that because of how little work is required to move the structure (and how rarely it needs to be turned), it is operated by a hand crank, requiring approximately 20 minutes of continuos cranking to completely roll over.\cite{bridge_newatlas,parker.2023} On Figure~\ref{fig:photo_cranking} below, a man in the back can be seen operating the hand crank.
+        The Cody Dock bridge was constructed in 2023 in East London, replacing a much older and simpler drawbridge. It was designed by architects Thomas Randall-Page and Tim Lucas. The ``revolution'' in this bridge is how it rotates (or ``rolls'') to let boats pass under it. The whole bridge is like a wheel rolling smoothly on a perfectly built for it road. What is also interesting, that because of how little work is required to move the structure (and how rarely it needs to be turned), it is operated by a hand crank, requiring approximately 20 minutes of continuos cranking to completely roll over.~\cite{bridge_newatlas,parker.2023} On Figure~\ref{fig:photo_cranking} below, a man in the back can be seen operating the hand crank.
 
         \begin{figure}[H]
             \centering
@@ -98,11 +98,11 @@
 
     \section{Defining ``smooth'' rolling}
 
-        In order to even start the discussion, ``smooth rolling'' has to be defined. If we e.g.\ take a circle shape and roll it on a straight surface, then it will roll ``smoothly''~-~its center of mass will move only horizontally and not vertically. However, when a square is rolled on the same surface, its center of mass will move vertically as well and hence its movement will not be ``smooth''.\cite{morphocular.2022,Hall_Wagon_1992}
+        In order to even start the discussion, ``smooth rolling'' has to be defined. If we e.g.\ take a circle shape and roll it on a straight surface, then it will roll ``smoothly''~-~its center of mass will move only horizontally and not vertically. However, when a square is rolled on the same surface, its center of mass will move vertically as well and hence its movement will not be ``smooth''.~\cite{morphocular.2022,Hall_Wagon_1992}
 
         Even so, why is it important to roll ``smoothly''? The answer is connected to physics, more specifically to the work needed to be done to roll the shape. If the figure is rolled ``smoothly'', then there is no need to do work in moving the center of mass up and down. Therefore, in the ideal world, the shape will roll without any work needed to be done (in reality, there is always some friction, so some work will always be needed to be done, but it will be very small - that is why the Cody Dock bridge can be controlled by a hand crank).
 
-        Another important property for ``rolling'' is that when any point of the shape is in contact with the road surface, its velocity relative to it has to be zero. Otherwise, if the point was moving while touching the road, it would be sliding and not rolling\cite{morphocular.2022}.
+        Another important property for ``rolling'' is that when any point of the shape is in contact with the road surface, its velocity relative to it has to be zero. Otherwise, if the point was moving while touching the road, it would be sliding and not rolling~\cite{morphocular.2022}.
 
         However, there must exist a surface (other than straight road) on which a square can roll ``smoothly''. It will be described parametrically as follows:
         \begin{align}
@@ -112,11 +112,11 @@
             \end{cases}
         \end{align}
 
-        Similarly, the square shape will also be parametrized. However, it will be parametrized in polar coordinates, as this representation will be easier to work with. The polar coordinate system is an alternative coordinate system in which 2 coordinates $r$ and $\theta$ are used instead of $x$ and $y$. $r$ is called the radial distance and is the distance of the point from the pole point (which is a point chosen as the origin of the system). The angle $\theta$ is the angle between the polar axis (chosen arbitrarily when describing the system, usually parallel to the x-axis) and the line joining the pole and the point described calculated in a direction that is chosen when describing the system (usually counter-clockwise)\cite{Sundstrom2021Polar}. This can be seen illustrated in Figure~\ref{fig:polar_definition} below:
+        Similarly, the square shape will also be parametrized. However, it will be parametrized in polar coordinates, as this representation will be easier to work with. The polar coordinate system is an alternative coordinate system in which 2 coordinates $r$ and $\theta$ are used instead of $x$ and $y$. $r$ is called the radial distance and is the distance of the point from the pole point (which is a point chosen as the origin of the system). The angle $\theta$ is the angle between the polar axis (chosen arbitrarily when describing the system, usually parallel to the x-axis) and the line joining the pole and the point described calculated in a direction that is chosen when describing the system (usually counter-clockwise)~\cite{Sundstrom2021Polar}. This can be seen illustrated in Figure~\ref{fig:polar_definition} below:
 
         \begin{figure}[]
             \centering\includegraphics[width=0.3\linewidth]{images/polar_definition.png}
-            \caption[Polar coordinate system]{Polar coordinates\cite{Sundstrom2021Polar}}\label{fig:polar_definition}
+            \caption[Polar coordinate system]{Polar coordinates~\cite{Sundstrom2021Polar}}\label{fig:polar_definition}
         \end{figure}
         
         Thus, the parametrization is as follows: 
@@ -182,7 +182,7 @@
             y(t) = t
         \end{align}
 
-        Those formulas can be converted to polar form using the following equations\cite{polar_rectangular}:
+        Those formulas can be converted to polar form using the following equations~\cite{polar_rectangular}:
         \begin{align}
             r &= \sqrt{x^2 + y^2} \\
             \theta &= \arctan\frac{y}{x}
@@ -219,7 +219,7 @@
             x(t) &= \int \frac{1}{\sqrt{1+t^2}} \;dt
         \end{align}
 
-        Which is the integral of the derivative of inverse hyperbolic sine function\cite{oxford_dict}, therefore:
+        Which is the integral of the derivative of inverse hyperbolic sine function~\cite{oxford_dict}, therefore:
         \begin{align}
             x(t) &= \text{arsinh}(t) + c 
         \end{align}
@@ -238,22 +238,22 @@
             y = -\sqrt{1+\sinh^2(x)} \\ 
         \end{align}
 
-        Using $\cosh^2(x) - \sinh^2(x) = 1$\cite{oxford_dict}, the equation can be simplified:
+        Using $\cosh^2(x) - \sinh^2(x) = 1$~\cite{oxford_dict}, the equation can be simplified:
         \begin{align}
             y = -\sqrt{\cosh^2(x)} \\
             y(x) = -\cosh(x)
         \end{align}
 
-        The obtained road function is actually an inverted catenary curve ($\cosh(x)$ is the catenary curve function). What is interesting is that the catenary is a curve formed by a hanging chain supported at its ends (even its name ``catenary'' is derived from latin word for ``chain'').\cite{mathworld_catenary} The curve is also a very common shape in architecture. It can be seen graphed below along with some square sides:
+        The obtained road function is actually an inverted catenary curve ($\cosh(x)$ is the catenary curve function). What is interesting is that the catenary is a curve formed by a hanging chain supported at its ends (even its name ``catenary'' is derived from latin word for ``chain'').~\cite{mathworld_catenary} The curve is also a very common shape in architecture. It can be seen graphed below along with some square sides:
         
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.75\linewidth]{images/cosh_many.png}
             \caption[Catenary curve with 3 square sides]{Catenary curve with 3 square sides ``rolling'' on top of it\footnotemark}\label{fig:cosh}
         \end{figure}
-        \footnotetext{All plots were created using the \textit{Matplotlib}\cite{Matplotlib} Python package, unless stated otherwise}
+        \footnotetext{All plots were created using the \textit{Matplotlib}~\cite{Matplotlib} Python package, unless stated otherwise}
 
-        It can be observed, that this shape is not the whole road, but only its fragment. It is due to the previous approximation of only one side. However, the road is periodical and needs to repeat every time the magnitude of the slope its tangent line is equal to $1$\cite{Hall_Wagon_1992}.
+        It can be observed, that this shape is not the whole road, but only its fragment. It is due to the previous approximation of only one side. However, the road is periodical and needs to repeat every time the magnitude of the slope its tangent line is equal to $1$~\cite{Hall_Wagon_1992}.
 
         This is caused that by the fact that when two consecutive catenaries intersect each other, we want the angle between their two tangent lines at the intersection to be equal to the angle of the square corner - $90\degree$, so that the corner of the square can ``fit''. 
 
@@ -312,7 +312,7 @@
             x = \pm \text{arsinh}(1)
         \end{equation} 
 
-        It has been found that for any polygon of n-sides, if the road is truncated at $x = \pm \; \text{arsinh}(\tan(\pi / n))$, then the amount of rotation to get the polygon in the cusp is $\frac{2\pi}{n}$\cite{Hall_Wagon_1992}. This statement holds true, as for square $n=4$ and $\tan(\frac{\pi}{4}) = 1$. Therefore, the cusp angle is $\frac{\pi}{2}$ rad, the road fragments will intersect at a right angle, which makes sense given that a square's vertex needs to fit in between them. Thus, next road fragments should have the equation\cite{Hall_Wagon_1992}:
+        It has been found that for any polygon of n-sides, if the road is truncated at $x = \pm \; \text{arsinh}(\tan(\pi / n))$, then the amount of rotation to get the polygon in the cusp is $\frac{2\pi}{n}$~\cite{Hall_Wagon_1992}. This statement holds true, as for square $n=4$ and $\tan(\frac{\pi}{4}) = 1$. Therefore, the cusp angle is $\frac{\pi}{2}$ rad, the road fragments will intersect at a right angle, which makes sense given that a square's vertex needs to fit in between them. Thus, next road fragments should have the equation~\cite{Hall_Wagon_1992}:
         \begin{equation}
             y = - \cosh (x + 2k \;\text{arsinh}(1) ) \quad \text{where}\; k \in \mathbb{Z}
         \end{equation}
@@ -326,16 +326,16 @@
 
     \section{Rounding the square}
 
-        However, the bridge cannot be a polygon with sharp corners, as standing on just one point (vertex of the square) would be too unstable for such a big structure (it weights 13 tons\cite{bridge_newatlas}). Therefore, the corners of the square have to be rounded. This can be done by adding a circle of radius $b$ to each corner of the square. (In the actual bridge the radius is equal to $0.25$ when the side length of the square is set to $2$). The new shape can be seen on Figure~\ref{fig:rounded_square} below.
+        However, the bridge cannot be a polygon with sharp corners, as standing on just one point (vertex of the square) would be too unstable for such a big structure (it weights 13 tons~\cite{bridge_newatlas}). Therefore, the corners of the square have to be rounded. This can be done by adding a circle of radius $b$ to each corner of the square. (In the actual bridge the radius is equal to $0.25$ when the side length of the square is set to $2$). The new shape can be seen on Figure~\ref{fig:rounded_square} below.
 
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\linewidth]{images/rounded_square.png}
-            \caption{Rounded square\cite{bridge_wolfram}}\label{fig:rounded_square}
+            \caption{Rounded square~\cite{bridge_wolfram}}\label{fig:rounded_square}
         \end{figure}
 
         % TODO derive polar form of the corner
-        The corners have the polar form\cite{bridge_wolfram}:
+        The corners have the polar form~\cite{bridge_wolfram}:
         \begin{equation}
             r = (1-b)\sqrt{2} \cos (\frac{\pi}{4} + \theta) + \sqrt{b^2 - 2(1-b)^2 \sin^2 (\frac{\pi}{4}+\theta)}
         \end{equation}
@@ -374,9 +374,9 @@
             r = \sqrt{2}\;\bar{b} \cos(\alpha) + \sqrt{b^2 - 2\bar{b}^2 \sin^2(\alpha)}
         \end{align}
 
-        By making the base polar axis to be at angle $\frac{\pi}{4}$ clockwise to the x-axis, the angle $\alpha = \theta + \frac{\pi}{4}$. Thus, by translating $\theta$ by multiplies of $\frac{\pi}{2}$ other corners can be found.\cite{bridge_wolfram}
+        By making the base polar axis to be at angle $\frac{\pi}{4}$ clockwise to the x-axis, the angle $\alpha = \theta + \frac{\pi}{4}$. Thus, by translating $\theta$ by multiplies of $\frac{\pi}{2}$ other corners can be found.~\cite{bridge_wolfram}
 
-        Substituting $b=0.25$, which is the real value used for the Cody Dock bridge\cite{bridge_wolfram}, the polar form of the rounded square is found:
+        Substituting $b=0.25$, which is the real value used for the Cody Dock bridge~\cite{bridge_wolfram}, the polar form of the rounded square is found:
         \begin{equation}
             r(\theta) = \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) + \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
         \end{equation}
@@ -423,7 +423,7 @@
             I_1 &= \frac{3}{4} (\sin(\theta) + \cos(\theta)) + c
         \end{align}
 
-        However, the $I_2$ integral is way trickier than the $I_1$ one and cannot be solved using simple methods learned during the IB Mathematics course, as it is an elliptic integral of the second kind\cite{elliptic_integral}. Therefore, it will be instead solved numerically using the Euler's method. For clarity of notation, let $v = I_2$.
+        However, the $I_2$ integral is way trickier than the $I_1$ one and cannot be solved using simple methods learned during the IB Mathematics course, as it is an elliptic integral of the second kind~\cite{elliptic_integral}. Therefore, it will be instead solved numerically using the Euler's method. For clarity of notation, let $v = I_2$.
 
         Euler's method states that for a very small $h$:
         \begin{align}
@@ -539,7 +539,7 @@
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.7\linewidth]{images/triangle_wheel.jpg}
-            \caption{Triangle crashing into its own road\cite{Hall_Wagon_1992}}\label{fig:triangle_crash}
+            \caption{Triangle crashing into its own road~\cite{Hall_Wagon_1992}}\label{fig:triangle_crash}
         \end{figure}
 
         This problem can be fixed by rounding the corners of the triangle, but it is also interesting to find the road for the not-rounded triangle.
@@ -626,7 +626,7 @@
             \caption{Making cuts in the bridge}\label{fig:teeth2}
             \end{subfigure}
 
-            \caption{Finding location and angle of ``teeth''\cite{parker.2023}}
+            \caption{Finding location and angle of ``teeth''~\cite{parker.2023}}
         \end{figure}
      
         By ``rolling'' the track instead of bridge, the resultant intersection of the track path and bridge frame create ideal points to make the cut-outs, so that the bridge can ideally miss the pins in the road while rolling.
