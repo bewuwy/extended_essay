@@ -183,8 +183,10 @@
 
         Those formulas can be converted to polar form using the following equations~\cite{polar_rectangular}:
         \begin{align}
-            r &= \sqrt{x^2 + y^2} \\
-            \theta &= \arctan\frac{y}{x}
+            \begin{cases}
+                r &= \sqrt{x^2 + y^2} \\
+                \theta &= \arctan\frac{y}{x}
+            \end{cases}
         \end{align}
 
         Therefore:
@@ -231,7 +233,7 @@
             \end{cases}
         \end{equation}
 
-        They can be then turned back into cartesian form:
+        They can be then turned back into cartesian form, as $\sinh(\text{arsinh}(t)) = t$:
         \begin{align}
             t = \sinh(x) \\
             y = -\sqrt{1+\sinh^2(x)}
@@ -295,7 +297,7 @@
             \frac{dy}{dx} = - \sinh x \\
         % \end{align*}
         % \begin{align*}
-            \Rightarrow | - \sinh x | = 1 \\
+            | - \sinh x | = 1 \\
             \sinh x = 1 \quad\lor\quad \sinh x = -1
         \end{align}
 
@@ -327,7 +329,7 @@
             x = \pm \text{arsinh}(1)
         \end{equation} 
 
-        It has been found that for any polygon of n-sides, if the road is truncated at $x = \pm \; \text{arsinh}(\tan\frac{\pi}{n})$, then the amount of rotation to get the polygon in the cusp is $\frac{2\pi}{n}$~\cite{Hall_Wagon_1992}. This statement holds true, as for square $n=4$ and $\tan(\frac{\pi}{4}) = 1$. Therefore, the cusp angle is $\frac{\pi}{2}$ rad, the road fragments will intersect at a right angle, which makes sense given that a square's vertex needs to fit in between them. Thus, next road fragments should have the equation~\cite{Hall_Wagon_1992}:
+        It has been found that for any polygon of n-sides, if the road is truncated at $x = \pm \; \text{arsinh}(\tan\frac{\pi}{n})$, then the amount of rotation to get the polygon in the cusp is $\frac{2\pi}{n}$~\cite{Hall_Wagon_1992}. This statement holds true for a square $n=4$, as $\tan(\frac{\pi}{4}) = 1$. Therefore, the cusp angle is $\frac{\pi}{2}$ rad, which makes sense given that a square's vertex needs to fit in between them. Thus, next road fragments should have the equation~\cite{Hall_Wagon_1992}:
         \begin{equation}
             y = - \cosh (x + 2k \;\text{arsinh}(1) ) \quad \text{where}\; k \in \mathbb{Z}
         \end{equation}
@@ -363,9 +365,9 @@
         \end{figure}
         \footnotetext{This diagram was created using the \textit{GeoGebra} software}
 
-        Let $O$ be the origin point $(0,0)$, $A$ be the centre of the circle - $A =(1-b,b-1)$ and $B$ be an arbitrary point on the rounded corner. Then, the $r$ we are looking for is the length of $OB$. The situation can be seen in Figure~\ref{fig:corner_cos_rule}.
+        Let $O$ be the origin point $(0,0)$, $A(1-b,b-1)$ be the centre of the circle and $B$ be an arbitrary point on the rounded corner. Then, the $r$ we are looking for is the length of $|OB|$. The situation can be seen in Figure~\ref{fig:corner_cos_rule}.
 
-        Now, using the property of diagonal of a square $|OA| = \sqrt{2} (1-b)$. For clarity, let $\bar{b} = (1-b)$. Then, $|OA| = \sqrt{2}\;\bar{b}$. Let $\alpha = \angle BOA$, then by cosine rule:
+        Now, using the property of a square diagonal $|OA| = \sqrt{2} (1-b)$. For clarity, let $\bar{b} = (1-b)$. Then, $|OA| = \sqrt{2}\;\bar{b}$. Let $\alpha = \angle BOA$, then by cosine rule:
         \begin{align}
             b^2 = (\sqrt{2}\;\bar{b})^2 + r^2 - 2 r \sqrt{2} \;\bar{b} \cos(\alpha) \\
             b^2 = 2\bar{b}^2 + r^2 - 2 \sqrt{2} r \bar{b} \cos(\alpha)
@@ -379,19 +381,21 @@
             \Delta &= 4b^2 - 8\bar{b}^2 \sin^2(\alpha) \\
             \sqrt{\Delta} &= 2 \sqrt{b^2 - 2\bar{b}^2 \sin^2(\alpha)}
         \end{flalign}
+
         Hence:
         \begin{align}
             r = \frac{2 \sqrt{2}\;\bar{b} \cos(\alpha) \pm 2 \sqrt{b^2 - 2\bar{b}^2 \sin^2(\alpha)}}{2} \\
             r = \sqrt{2}\;\bar{b} \cos(\alpha) \pm \sqrt{b^2 - 2\bar{b}^2 \sin^2(\alpha)}
         \end{align}
-        The radius $r$ of the polar form has to be positive, so:
+
+        The radial distance $r$ of the polar form has to be positive, so:
         \begin{align}
             r = \sqrt{2}\;\bar{b} \cos(\alpha) + \sqrt{b^2 - 2\bar{b}^2 \sin^2(\alpha)}
         \end{align}
 
-        By making the base polar axis to be at angle $\frac{\pi}{4}$ clockwise to the x-axis, the angle $\alpha = \theta + \frac{\pi}{4}$. Thus, by translating $\theta$ by multiplies of $\frac{\pi}{2}$ other corners can be found.~\cite{bridge_wolfram}
+        By making the base polar axis to be at angle $\frac{\pi}{4}$ clockwise to the x-axis, the angle $\alpha = \theta + \frac{\pi}{4}$. Additionally, by translating $\theta$ by multiplies of $\frac{\pi}{2}$, other corners can be found.~\cite{bridge_wolfram}
 
-        Substituting $b=0.25$, which is the real value used for the Cody Dock bridge~\cite{bridge_wolfram}, the polar form of the rounded square is found:
+        Substituting $b=0.25$, which is the real value used for the Cody Dock bridge~\cite{bridge_wolfram}, the polar form of the rounded square is obtained:
         \begin{equation}
             r(\theta) = \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) + \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
         \end{equation}
@@ -399,12 +403,12 @@
 
     \section{Finding the road for a rounded square}
 
-        The rounded square is very similar to the normal one, apart from its corners. Hence, the road for the corners has to be found, as the one for the sides will be the same. From Equation~\ref{eq:road_1} it is easy to find $y$:
+        The rounded square is very similar to the normal one, apart from its corners. Hence, the road for those corners has to be found, as the one for the sides will be the same. From Equation~\ref{eq:road_1} it is easy to find $y$:
         \begin{equation}\label{eq:rounded_ytheta}
             y(\theta) = - \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) - \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
         \end{equation}
 
-        This way, we find $y$ in terms of the angle $\theta$, but this form will be easier for this part of the road. Hence, $x$ should also be found in terms of $\theta$.
+        This way, we find $y$ in terms of the angle $\theta$. This parametrization will be easier for this part of the road. Hence, $x$ should also be found in terms of $\theta$.
 
         From Equation~\ref{eq:road_1} it is known that:
         \begin{equation}
@@ -418,7 +422,7 @@
             x(\theta) &= \int r(\theta) \;d\theta
         \end{align}
 
-        Substituting $r$:
+        Substituting $r(\theta)$:
         \begin{align}
             x(\theta) &= \int \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) + \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \Hquad d\theta \\
             &= \frac{3\sqrt{2}}{4} \int \cos (\frac{\pi}{4} + \theta) \Hquad d\theta + \int \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)} \Hquad d\theta
@@ -438,7 +442,7 @@
             I_1 &= \frac{3}{4} (\sin(\theta) + \cos(\theta)) + c
         \end{align}
 
-        However, the $I_2$ integral is way trickier than the $I_1$ one and cannot be solved using simple methods learned during the IB Mathematics course, as it is an elliptic integral of the second kind~\cite{elliptic_integral}. Therefore, it will be instead solved numerically using the Euler's method. For clarity of notation, let $v = I_2$.
+        However, the $I_2$ integral is way trickier than the first one and cannot be solved using simple methods learned during the IB Mathematics course, as it is an elliptic integral of the second kind~\cite{elliptic_integral}. Therefore, it will be instead solved numerically using the Euler's method. For clarity of notation, let $v = I_2$.
 
         Euler's method states that for a very small $h$:
         \begin{align}
@@ -490,7 +494,7 @@
         \end{align}
         \[ \theta \in [- \text{arccot}(\frac{3}{4}), \;\text{arccot}(\frac{3}{4}) - \frac{\pi}{2}] \]
 
-        If we let $v(-\text{arccot}\frac{3}{4}) = 0$ and $h=0.001$, the x and y values can be calculated using the code seen in Appendix~\ref{app:euler_python}. By plotting those points, the road can be seen in Figure~\ref{fig:corner_road} below:
+        If we let $v(-\text{arccot}\frac{3}{4}) = 0$ and $h=0.001$, the x and y values can be calculated using the Python code seen in Appendix~\ref{app:euler_python}. By plotting those points, the road can be seen in Figure~\ref{fig:corner_road} below:
         \begin{figure}[H]
             \includegraphics[width=\linewidth]{images/corner_road.png}
             \caption{Road for the rounded corner}\label{fig:corner_road}
@@ -523,14 +527,14 @@
             \caption{Road for the square with rounded corners}\label{fig:corner_road_full}
         \end{figure}
 
-        For the bridge to make a 180 degree rotation, the square has to ``tumble over'' two times. Therefore, the catenaries and the ``corner parts'' have to repeat three and two times respectively. Given that from the centre of the catenary to the intersection is the distance $\text{arsinh}(1)$, the second corner part will be at $x=3\text{arsinh}(1)$. Hence, the full road with the rounded square can be seen on the Figure~\ref{fig:bridge_full}:
+        For the bridge to make a $180\degree$ rotation, the square has to ``tumble over'' two times. Therefore, the catenaries and the ``corner parts'' have to repeat three and two times respectively. Given that from the centre of the catenary to the intersection is the distance $\text{arsinh}(1)$, the second corner part will be at $x=3\text{arsinh}(1)$. Hence, the full road with the rounded square can be seen on the Figure~\ref{fig:bridge_full}:
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.75\linewidth]{images/road_with_square.png}
             \caption{Full road plotted along with the bridge}\label{fig:bridge_full}
         \end{figure}
 
-        Additionally, since the bridge should stand still on the beginning and end of the road, the catenary curves can be restricted to $x \in [0, 4\text{arsinh}(1)]$. A $y=-1$ line can be thus added for $x \in [-1, 0] \cup [4\text{arsinh}(1), 4\text{arsinh}(1)+1]$. Given that the first catenary curve intersects the corner road at $x \approx \text{arsinh}(1) - 0.15$ (The centre of the road piece is at $x=\text{arsinh}(1)$ and the width of this piece is around $0.3$), the catenaries were restricted to $y\in [-\text{cosh}(\text{arsinh}(1) - 0.15), -1] \approx y \in [-1.28, -1]$. Hence, the final road can be seen in Figure~\ref{fig:bridge_final} below:
+        Additionally, since the bridge should stand still on the beginning and end of the road, the catenary curves can be restricted to $x \in [0, 4\text{arsinh}(1)]$ and a $y=-1$ line can be thus added for $x \in [-1, 0] \cup [4\text{arsinh}(1), 4\text{arsinh}(1)+1]$. The centre of the corner road piece is at $x=\text{arsinh}(1)$ and the width of this piece is around $0.3$, so the first catenary curve intersects the corner road at $x \approx \text{arsinh}(1) - 0.15$. Hence, the catenaries were restricted to $y\in [-\text{cosh}(\text{arsinh}(1) - 0.15), -1] \approx y \in [-1.28, -1]$. Hence, the final road can be seen in Figure~\ref{fig:bridge_final} below:
 
         \begin{figure}[H]
             \centering
@@ -538,7 +542,7 @@
             \caption{Final road for the rounded square}\label{fig:bridge_final}
         \end{figure}
 
-        Thus, by using finding the polar form of the rounded corner and then approximating its road fragment, a full road (which should have the same shape as the one currently in London) was calculated. This can be seen visually in the Figure~\ref{fig:masterplan_overlayed} below:
+        Thus, by finding the polar form of the rounded corner and then approximating its road fragment, a full road (which should have the same shape as the one currently in London) was calculated. The road can be visually evaluated in the Figure~\ref{fig:masterplan_overlayed} below, by comparing it to the original sketches of the Cody Dock bridge (e.g.\ the bridge obtained in the calculations is not as high as the one in the masterplan, as its thickness was omitted):
 
         \begin{figure}[H]
             \centering
@@ -549,17 +553,16 @@
 
     \section{Finding roads for different polygonal wheels}
 
-        It may also be interesting to find the roads for polygons other than a simple square. Thus, it may be interesting to start with the triangle, as a normal (not-rounded) triangle cannot physically have a ``perfect road'', as the road is so steep, that the triangle crashes into it. This situation can be seen in Figure~\ref{fig:triangle_crash} below:
-
+        It may also be interesting to find the roads for polygons other than a simple square. The most intriguing of such seems to be the 3-sided one, as a normal (not-rounded) triangle cannot physically have a ``perfect road''. The road is so steep, that the triangle crashes into it during its roll. This situation can be seen in Figure~\ref{fig:triangle_crash} below:
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.7\linewidth]{images/triangle_wheel.jpg}
             \caption{Triangle crashing into its own road~\cite{Hall_Wagon_1992}}\label{fig:triangle_crash}
         \end{figure}
 
-        This problem can be fixed by rounding the corners of the triangle, but it is also interesting to find the road for the not-rounded triangle.
+        This problem can be fixed by rounding the corners of the triangle~\cite{Hall_Wagon_1992}, but it may also prove interesting to find the road for the not-rounded triangle.
 
-        Similarly as with the square, we start with one side and get the $y= -\cosh x$ road, but this time the angle of intersection of the catenaries should be $60\degree = \frac{\pi}{3} \;\text{rad}$ (the angle of equilateral triangle vertex).
+        Similarly as with the square, we start with one side and get the $y= -\cosh x$ road, but this time the angle of intersection of the catenaries should be $60\degree = \frac{\pi}{3} \;\text{rad}$ (the internal angle of an equilateral triangle).
 
         Using Equation~\ref{eq:lines_angle}:
         \begin{align}
@@ -575,7 +578,7 @@
             m_1 = - \sqrt{3} \quad \lor \quad m_1 = \frac{\sqrt{3}}{3}
         \end{align}
 
-        However, the magnitude of the slope has to be bigger than $1$, as by decreasing the slope, the angle ``on top of the road'' will increase. (The other value gives an angle equal to $120\degree$ instead of $60\degree$) Thus, the correct result is:
+        However, the magnitude of the slope has to be bigger than $1$, as with smaller slopes, the angle ``on top of the road'' is greater. (The other value gives an angle equal to $120\degree$ instead of $60\degree$) Thus, the correct result is:
         \begin{align*}
             |m| = \sqrt{3}
         \end{align*}
@@ -619,7 +622,7 @@
 
         It can immediately be seen that the side of the triangle is much larger than the width of one catenary ($2\sqrt{3} > 2\text{arsinh}\sqrt{3}$), which visually shows why the triangle crashes into its own road and is thus unable to rotate about it.
 
-        Moreover, a triangular shape is not a good pick for a bridge, as when it would be rotated by $180\degree$ so that ships could swim beneath it, it would stand on its vertex. Hence, this solution would be very dangerous in real life due to its instability (due to the steep road, big friction force would also be needed so that the bridge would not slip while rolling). This is actually the case for all odd-sided polygons, so it is perhaps more interesting to look at an even-sided polygon~-~more precisely a hexagon.
+        Moreover, a triangular shape is not a good pick for a bridge, as when it would be rotated by half a revolution, so that ships could swim beneath it, it would stand on its own vertex. Such solution would be very dangerous in real life due to its instability (also due to the steep road, big friction force would be needed to prevent slipping of the bridge during rolling). The standing-on-vertex problem is actually the case for all odd-sided polygons, so it is perhaps more interesting to look at an even-sided polygon~-~more precisely a regular hexagon.
 
         Once again, we start with only one side rolling, so the road is $y = -\cosh(x)$. However, in a regular hexagon, all interior angles are $120\degree = \frac{2\pi}{3}$ rad, which should be the angle of intersection of two consecutive catenaries. 
         
@@ -633,7 +636,7 @@
             m_1 = \sqrt{3} \quad \lor \quad m_1 = - \frac{\sqrt{3}}{3}
         \end{align}
 
-        However, now we want $|m_1|<1$, as the angle ``on top of the catenary'' should be obtuse. Thus:
+        However, now we want $|m|<1$, as the angle ``on top of the catenary'' should be obtuse. Thus:
         \begin{align}
             |m| = \frac{\sqrt{3}}{3} 
         \end{align}
@@ -643,16 +646,16 @@
             x = \pm \text{arsinh}\frac{\sqrt{3}}{3} \approx \pm 0.549
         \end{align}
 
-        The road, along with the hexagon of side length $\frac{2\sqrt{3}}{3}$ (as the distance from the centre of the polygon to the road had to be equal to $1$) can be seen graphed below in Figure~\ref{fig:hexagon}:
+        At the beginning, the distance from the centre of the hexagon to the road had to be equal to $1$, so its side length $a=\frac{2\sqrt{3}}{3}$. Thus, the road, along with the hexagon can be seen graphed below in Figure~\ref{fig:hexagon}:
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.8\linewidth]{images/hexagon_bridge.png}
-            \caption{Hexagon with its road}\label{fig:hexagon}
+            \caption{Hexagon with its own road}\label{fig:hexagon}
         \end{figure}
 
-        It is interesting to note, that in this case there have to be 4 catenaries in order for the polygon to rotate by $180\degree$. The square needed only 3, while the triangle only 2 (or actually 2 and a half~-~to keep it balanced on the vertex when the bridge is open). However, the more of the catenaries, the shorter they are, so the road becomes shorter horizontally. As the shape will approach a circle, the length of the road to rotate by half a revolution will approach $\pi$.
+        It is interesting to note, that in this case there have to be 4 catenaries in order for the polygon to rotate by $180\degree$. The square needed only 3 curves, while the triangle only 2 (or actually $2.5$~-~to keep it balanced on the vertex when the bridge is open). However, the more of the catenaries there are, the shorter they are, so the road becomes actually shorter horizontally. As the number of sides will increase and the shape will approach a circle, the length of the road to rotate by half a revolution will approach $\pi$.
 
-        Another observation that can be made is that the more sides the polygon has, the sooner the catenary is truncated and the less steep it becomes. This is quite intuitive, because as the number of sides of a polygon increase, the more circular it becomes, so the road is more and more like the one ideal for a circle~-~a straight line.
+        Another observation that can be made is that the more sides the polygon has, the sooner the catenary is truncated and the less steep it becomes. This is quite intuitive, because as the shape becomes more circular, the road is more and more like the one ideal for a circle~-~a straight line.
 
     \section{Possible further research}
 
@@ -663,7 +666,7 @@
             \begin{subfigure}{0.49\textwidth}
             \centering
             \includegraphics[width = \textwidth]{images/bridge_teeth_1.jpg}
-            \caption{Rotating the road around the bridge}\label{fig:teeth1}
+            \caption{Rotating road's ``teeth'' around the bridge}\label{fig:teeth1}
             \end{subfigure}
             \begin{subfigure}{0.49\textwidth}
             \centering
@@ -671,22 +674,22 @@
             \caption{Making cuts in the bridge}\label{fig:teeth2}
             \end{subfigure}
 
-            \caption{Finding location and angle of ``teeth''~\cite{parker.2023}}
+            \caption{Finding location and angle of cuts in the bridge frame~\cite{parker.2023}}
         \end{figure}
      
-        By ``rolling'' the track instead of bridge, the resultant intersection of the track path and bridge frame create ideal points to make the cut-outs, so that the bridge can ideally miss the pins in the road while rolling.
+        By ``rolling'' the track instead of bridge, the resultant intersection of the track path and bridge frame create ideal points at ideal angles to make the cut-outs, so that the bridge can miss the pins in the road entirely while rolling~\cite{parker.2023}.
         
-        This concept is very fascinating and useful when dealing with rolling structure in real world, but the Mathematics behind it are very much out of scope of this essay. However, expanding on this topic might have been intriguing.
+        This concept is very fascinating and useful when dealing with rolling structure in real world, but the Mathematics behind it are unfortunately very much out of scope of this essay. However, expanding on this topic might have been intriguing.
 
     \section{Conclusion}
 
-        Catenary curves are usually thought of as curves that can describe behaviours of chains pulled down by gravity. That is exactly what they do, but there are still applications for them outside of this area.
+        Catenary curves are usually thought of as curves that can only describe behaviours of chains pulled down by gravity. That is actually exactly what they do, but there are still applications for them outside of this very specific area.
 
-        When designing perfect roads for non-circular shapes, the catenaries become very useful, irrespective of the polygon that the ``wheel'' is. However, when we try to apply those concepts of rolling polygons in the real world, like the architects of Cody Dock bridge did, some adjustments have to be made.
+        When designing perfect roads for non-circular rolling shapes, the catenaries become very useful, irrespective of the polygon that the ``wheel'' is. However, when we try to apply those concepts of rolling polygons in the real world, like the architects of Cody Dock bridge did, some adjustments have to be made.
 
-        Ironically, to make the non-circular rolling bridges a reality, circles have to be added to them. Thanks to those rounded corners the pressure at the vertices can be decreased, but it is all at the cost of catenaries. The roads required for circles, which have their mass centres outside of them, are way more complicated than simple catenaries. Hence, in the real world, when physics come into play, the catenaries seem to be not enough to construct such innovative bridges. More sophisticated integration methods (or simply approximations) are also required to find the not-easy road fragments.
+        Ironically, to make the non-circular rolling bridges a reality, circles have to be added to them. Thanks to the added rounded corners, the pressure at the vertices can be decreased which improves the structural integrity of the bridge. However, it is all at the cost of catenaries. The roads required for circles, which have their mass centres outside of themselves, are way more complicated than simple catenaries. Hence, in the real world, where physics come into play, the catenaries seem to be not enough to construct such innovative bridges. More sophisticated integration methods (or simply approximations) are also required to find the not-easy road fragments.
 
-        Even though the innovations that the catenaries bring into the world of non-circular wheels are not very practical, they show that Mathematics as a piece of knowledge, that is very interconnected and that those connections appear even where we least expect them. Moreover, using them in such unusual ways can be great for artists or engineers (as in the Cody Dock case) trying to convey some message. This is further exemplified by the fact, that the Cody Dock bridge won the \textit{2023 Bridges Design Award}~\cite{bridges_awards}. Overall, the use of catenaries is needed when constructing non-circular, ``rolling'' bridges and perhaps in the future many more seemingly non-practical structures.
+        Even though the innovations that the catenaries bring into the world of non-circular wheels are not very practical, they show that Mathematics as an area of knowledge is very interconnected and that those connections appear even where we least expect them. Moreover, using those interconnections in such unusual ways can be great for artists or engineers (as in the Cody Dock case) trying to convey some message and inspire others to dive into Mathematics. The message seems to come across, as people are analysing the Cody Dock bridge and its functioning. This is exemplified by the fact that the bridge won the \textit{2023 Bridges Design Award}~\cite{bridges_awards}. Overall, the use of catenary curves is necessary when constructing non-circular, ``rolling'' bridges and perhaps also in the future when constructing many more seemingly non-practical structures.
 
     % bibliography
     \newpage
