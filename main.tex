@@ -61,7 +61,7 @@
 \title{Exploring mathematics behind the Cody Dock bridge \\
     \large Extended essay \\
     \normalsize Research Question: How can catenary curves be used in construction of non-circular, ``rolling'' bridges? \\
-    \vspace{12pt} Word count: 3152}
+    \vspace{12pt} Word count: 3459}
 
 \date{}
 \author{}
@@ -165,13 +165,7 @@
             \end{cases}
         \end{equation}
 
-        The $y$ part of the road curve can easily be found:
-        \begin{align}
-            % r(t) = - y(t) \nonumber \\
-            y = -r
-        \end{align}
-
-        Hence:
+        The $y$ part of the road curve can easily be found, hence:
         \begin{equation}\label{eq:road_1}
             \begin{cases}
                 y = -r \\
@@ -224,7 +218,7 @@
             x(t) &= \int \frac{1}{\sqrt{1+t^2}} \;dt
         \end{align}
 
-        Which is the integral of the derivative of inverse hyperbolic sine function~\cite{oxford_dict}, therefore:
+        Which is an integral of the derivative of inverse hyperbolic sine function arsinh~\cite{oxford_dict}, therefore:
         \begin{align}
             x(t) &= \text{arsinh}(t) + c 
         \end{align}
@@ -581,7 +575,7 @@
             m_1 = - \sqrt{3} \quad \lor \quad m_1 = \frac{\sqrt{3}}{3}
         \end{align}
 
-        However, the magnitude of the slope has to be bigger than $1$, as by decreasing the slope, the angle ``on top of the road'' will increase. Thus, the correct result is:
+        However, the magnitude of the slope has to be bigger than $1$, as by decreasing the slope, the angle ``on top of the road'' will increase. (The other value gives an angle equal to $120\degree$ instead of $60\degree$) Thus, the correct result is:
         \begin{align*}
             |m| = \sqrt{3}
         \end{align*}
@@ -593,16 +587,13 @@
 
         Hence, for the first catenary:
         \begin{align}
-            \begin{cases}
-                y = -\cosh(x) \\
-                x \in [-\text{arsinh}\sqrt{3}, \text{arsinh}\sqrt{3}]
-            \end{cases}
+            y = -\cosh(x) \quad x \in [-\text{arsinh}\sqrt{3}, \text{arsinh}\sqrt{3}]
         \end{align}
 
         Thus, the following road was obtained:
         \begin{figure}[H]
             \centering
-            \includegraphics[width=\linewidth]{images/triangle_road.png}
+            \includegraphics[width=0.9\linewidth]{images/triangle_road.png}
             \caption{Road for an equilateral triangle}
         \end{figure}
 
@@ -628,7 +619,40 @@
 
         It can immediately be seen that the side of the triangle is much larger than the width of one catenary ($2\sqrt{3} > 2\text{arsinh}\sqrt{3}$), which visually shows why the triangle crashes into its own road and is thus unable to rotate about it.
 
-        Moreover, a triangular shape is not a good pick for a bridge, as when it would be rotated by $180\degree$ so that ships could swim beneath it, it would stand on a vertex. Hence, this solution would be very dangerous in real life due to instability.
+        Moreover, a triangular shape is not a good pick for a bridge, as when it would be rotated by $180\degree$ so that ships could swim beneath it, it would stand on its vertex. Hence, this solution would be very dangerous in real life due to its instability (due to the steep road, big friction force would also be needed so that the bridge would not slip while rolling). This is actually the case for all odd-sided polygons, so it is perhaps more interesting to look at an even-sided polygon~-~more precisely a hexagon.
+
+        Once again, we start with only one side rolling, so the road is $y = -\cosh(x)$. However, in a regular hexagon, all interior angles are $120\degree = \frac{2\pi}{3}$ rad, which should be the angle of intersection of two consecutive catenaries. 
+        
+        Thus, at the point of intersection (using Equation~\ref{eq:lines_angle},~\ref{eq:tangent_intersection}):
+        \begin{align}
+            \tan \frac{2\pi}{3} = \frac{2m_1}{1 - {m_1}^2} \\
+            - \sqrt{3} = \frac{2m_1}{1 - {m_1}^2} \\
+            -\sqrt{3} + \sqrt{3}{m_1}^2 = 2m_1 \\
+            \sqrt{3}{m_1}^2 - 2m_1 - \sqrt{3} = 0 \\
+            % m_1 = \frac{2\pm4}{2\sqrt{3}} \\
+            m_1 = \sqrt{3} \quad \lor \quad m_1 = - \frac{\sqrt{3}}{3}
+        \end{align}
+
+        However, now we want $|m_1|<1$, as the angle ``on top of the catenary'' should be obtuse. Thus:
+        \begin{align}
+            |m| = \frac{\sqrt{3}}{3} 
+        \end{align}
+
+        Hence (by Equation~\ref{eq:x_cosh_end}), the catenary should be truncated at:
+        \begin{align}
+            x = \pm \text{arsinh}\frac{\sqrt{3}}{3} \approx \pm 0.549
+        \end{align}
+
+        The road, along with the hexagon of side length $\frac{2\sqrt{3}}{3}$ (as the distance from the centre of the polygon to the road had to be equal to $1$) can be seen graphed below in Figure~\ref{fig:hexagon}:
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\linewidth]{images/hexagon_bridge.png}
+            \caption{Hexagon with its road}\label{fig:hexagon}
+        \end{figure}
+
+        It is interesting to note, that in this case there have to be 4 catenaries in order for the polygon to rotate by $180\degree$. The square needed only 3, while the triangle only 2 (or actually 2 and a half~-~to keep it balanced on the vertex when the bridge is open). However, the more of the catenaries, the shorter they are, so the road becomes shorter horizontally. As the shape will approach a circle, the length of the road to rotate by half a revolution will approach $\pi$.
+
+        Another observation that can be made is that the more sides the polygon has, the sooner the catenary is truncated and the less steep it becomes. This is quite intuitive, because as the number of sides of a polygon increase, the more circular it becomes, so the road is more and more like the one ideal for a circle~-~a straight line.
 
     \section{Possible further research}
 

@@ -28,10 +28,10 @@
 
 ### triangle bridge
 - [x] normally cannot - too steep road and triangle crashes, but with rounded corners its possible
-- the catenary curve is steeper, so more friction is needed
+- [x] the catenary curve is steeper, so more friction is needed
 
 ### polygonal bridge
-- pentagon and hexagon
+- [x] pentagon and hexagon
 
 ### conclusion
 - [x] idk man
