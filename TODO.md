@@ -1,7 +1,7 @@
 ## TODO
 
 - [x] change citation style to APA
-- add x, y labels to graphs
+- [x] add x, y labels to graphs
 
 ## Work plan
 
