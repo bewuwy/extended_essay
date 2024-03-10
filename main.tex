@@ -75,9 +75,9 @@
     
     \section{Introduction}
 
-        Bridges are the ``structures that span horizontally between supports, whose function is to carry vertical loads''~\cite{bridge_encyplopedia}. They allow us people to travel more easily and by this, they connect us. They have already existed for thousands of years, yet there is still so little of real innovation in their design.
+        Bridges are the ``structures that span horizontally between supports, whose function is to carry vertical loads''~\cite{bridge_encyplopedia}. They allow us, people, to travel more easily and by this, they connect us. They have already existed for thousands of years, yet there is still so little of real innovation in their design.
     
-        That is what the Cody Dock bridge is for me: a change. For once, the simplicity of a drawbridge was overruled by (quite literally) a simple revolution. The artists and architects who designed it wanted for it to be different from the thousands or even millions of other bridges. To achieve this, they used really interesting mathematics, which I will be investigating in this essay. Those innovators created one of the most unique drawbridges (if it even can be called a ``draw''bridge) in the world.
+        That is what the Cody Dock bridge is for me: a change. For once, the simplicity of a drawbridge was overruled by (quite literally) a simple revolution. The artists and architects who designed it wanted it to be different from thousands or even millions of other bridges. To achieve this, they used really interesting mathematics, which I will be investigating in this essay. Those innovators created one of the most unique drawbridges (if it can be called a ``draw''bridge at all) in the world.
 
         \begin{figure}[H]
             \centering
@@ -85,11 +85,11 @@
             \caption[Bridge photo]{Bridge photo~\cite{bridge_photos}}\label{fig:bridge_photo}
         \end{figure}
 
-        However, the sheer innovation of this ``structure'' was not the only reason I decided to look more into it and broaden my mathematical knowledge by investigating it. I am also very interested in urban planing and architecture, which can be combined in this work with my passion for Mathematics.
+        However, the sheer innovation of this ``structure'' was not the only reason for which I have decided to look more into it and broaden my mathematical knowledge by investigating it. I am also very interested in urban planing and architecture, which can be combined in this work with my passion for Mathematics.
 
-        I also believe, that this bridge is a sort of mathematical phenomena existing in the real world. It is using the generally forgotten field of catenary curves to create a functional art piece, perhaps to inspire others to explore the mathematics behind it.
+        I also believe that this bridge is a sort of mathematical phenomenon existing in the real world. It is using the generally forgotten field of catenary curves to create a functional art piece, perhaps to inspire others to explore the mathematics behind it.
 
-        The Cody Dock bridge was constructed in 2023 in East London, replacing a much older and simpler drawbridge. It was designed by architects Thomas Randall-Page and Tim Lucas. The ``revolution'' in this bridge is how it rotates (or ``rolls'') to let boats pass under it. The whole bridge is like a wheel rolling smoothly on a perfectly built for it road. What is also interesting, that because of how little work is required to move the structure (and how rarely it needs to be turned), it is operated by a hand crank, requiring approximately 20 minutes of continuos cranking to completely roll over.~\cite{bridge_newatlas,parker.2023} On Figure~\ref{fig:photo_cranking} below, a man in the back can be seen operating the hand crank.
+        The Cody Dock bridge was constructed in 2023 in East London, replacing a much older and simpler drawbridge. It was designed by architects Thomas Randall-Page and Tim Lucas. The ``revolution'' in this bridge is how it rotates (or ``rolls'') to let boats pass under it. The whole bridge is like a wheel rolling smoothly on a track perfectly built for it. Interestingly, because of how little work is required to move the structure (and how rarely it needs to be turned), it is operated by a hand crank, requiring approximately 20 minutes of continuos cranking to completely roll over~\cite{bridge_newatlas,parker.2023}. In Figure~\ref{fig:photo_cranking} below a man in the back can be seen operating the hand crank and thus ``rolling'' the bridge.
 
         \begin{figure}[H]
             \centering
@@ -99,9 +99,9 @@
 
     \section{Defining ``smooth'' rolling}
 
-        In order to even start the discussion, ``smooth rolling'' has to be defined. If we e.g.\ take a circle shape and roll it on a straight surface, then it will roll ``smoothly''~-~its centre of mass will move only horizontally and not vertically. However, when a square is rolled on the same surface, its centre of mass will move vertically as well and hence its movement will not be ``smooth''.~\cite{morphocular.2022,Hall_Wagon_1992}
+        In order to even start the discussion, ``smooth rolling'' has to be defined. If we e.g.\ take a circle shape and roll it on a straight surface, then it will roll ``smoothly''~-~its centre of mass will move only horizontally and not vertically. However, when a square is rolled on the same surface, its centre of mass will move vertically as well and hence its movement will not be ``smooth''~\cite{morphocular.2022,Hall_Wagon_1992}.
 
-        Even so, why is it important to roll ``smoothly''? The answer is connected to physics, more specifically to the work needed to be done to roll the shape. If the figure is rolled ``smoothly'', then there is no need to do work in moving the centre of mass up and down. Therefore, in the ideal world, the shape will roll without any work needed to be done (in reality, there is always some friction, so some work will always be needed to be done, but it will be very small~-~that is why the Cody Dock bridge can be controlled by a hand crank).
+        Even so, why is it important to roll ``smoothly''? The answer is connected to physics, more specifically to the work needed to be done to roll the shape. If the figure is rolled ``smoothly'', then there is no need to do work in moving the centre of mass up and down. Therefore, in the ideal world, the shape will roll without any work needed to be done (in reality, there is always some friction, so some work will always be needed to be done, but it will be very little~-~that is why the Cody Dock bridge can be controlled by a hand crank).
 
         Another important property for ``rolling'' is that when any point of the shape is in contact with the road surface, its velocity relative to it has to be zero. Otherwise, if the point was moving while touching the road, it would be sliding and not rolling~\cite{morphocular.2022}.
 
@@ -113,7 +113,7 @@
             \end{cases}
         \end{align}
 
-        Similarly, the square shape will also be parametrized. However, it will be parametrized in polar coordinates, as this representation will be easier to work with. The polar coordinate system is an alternative coordinate system in which 2 coordinates $r$ and $\theta$ are used instead of $x$ and $y$. $r$ is called the radial distance and is the distance of the point from the pole point (which is a point chosen as the origin of the system). The angle $\theta$ is the angle between the polar axis (chosen arbitrarily when describing the system, usually parallel to the x-axis) and the line joining the pole and the point described calculated in a direction that is chosen when describing the system (usually counter-clockwise)~\cite{Sundstrom2021Polar}. This can be seen illustrated in Figure~\ref{fig:polar_definition} below:
+        Similarly, the square shape will also be parametrized. However, it will be parametrized in polar coordinates, as this representation will be easier to work with. The polar coordinate system is an alternative coordinate system in which two coordinates $r$ and $\theta$ are used instead of $x$ and $y$. $r$ is called the radial distance and is the distance from the point to the pole (which is a point chosen as the origin of the system). The angle $\theta$ is the angle between the polar axis (chosen arbitrarily when describing the system, usually parallel to the x-axis) and the line joining the pole and the point described, calculated in a direction that is chosen when describing the system (usually counter-clockwise)~\cite{Sundstrom2021Polar}. This can be seen illustrated in Figure~\ref{fig:polar_definition} below:
 
         \begin{figure}[]
             \centering\includegraphics[width=0.3\linewidth]{images/polar_definition.png}
@@ -128,14 +128,14 @@
             \end{cases}
         \end{align}
 
-        To simplify the calculations, the line of movement of the centre of mass of the square will be chosen to be the x-axis. Hence, the road will have to be under it, so $y(t) < 0$. Likewise, the centre of mass of the square point (axle) will be chosen to be at the origin of its local coordinate system. The parameter $t$ can be thought of as the time, at which there is a point on the square and on the road, which are touching. Therefore, the point $(x, y)$ on the road will be the contact point on the road curve and similarly the point $(r, \theta)$ will be the contact point on the square curve.
+        To simplify the calculations, the line of movement of the centre of mass of the square will be chosen to be the x-axis. Hence, the road will have to be under it, so $y(t) < 0$. Likewise, the centre of mass of the square point (axle) will be chosen to be at the origin of its local coordinate system. The parameter $t$ can be thought of as the time at which there is a point on the square and on the road, which are touching. Therefore, the point $(x, y)$ on the road will be the contact point on the road curve and similarly the point $(r, \theta)$ will be the contact point on the square curve.
 
         Now, the relations between those two curves need to be found. If it is assumed that the square is on the road, then it must be touching it at some point. Moreover, the point of contact is not a random point on the curve, but the one directly beneath the centre mass point (so the origin point). Therefore, it has to be the $r(t)$ point on the square curve. Hence, the distance from axle to the road must be equal to the road's depth ($-y(t)$):
         \begin{equation}
             r(t) = - y(t)
         \end{equation}
 
-        Another relation can be found by looking at the contact point's velocity. It was earlier defined, that during contact, the velocity of a point relative to the road has to be zero. However, when it is looked at from the perspective of the axle point, all points on the square are constantly moving (while rolling). Therefore, if the point is stationary relative to the ground, but moving relative to the centre point, then those speeds have to be equal to each other. The speed relative to road is simply $|\frac{dx}{dt}|$, while the speed relative to the axle can be calculated from its angular speed:
+        Another relation can be found by looking at the contact point's velocity. It was earlier defined that during contact the velocity of a point relative to the road has to be zero. However, when it is looked at from the perspective of the axle point, all points on the square are constantly moving (while rolling). Therefore, if the point is stationary relative to the ground, but moving relative to the centre point, then those speeds have to be equal to each other. The speed relative to road is simply $|\frac{dx}{dt}|$, while the speed relative to the axle can be calculated from its angular speed:
         \begin{flalign}
             \begin{cases}
             \omega = \frac{d\theta}{dt} \\
@@ -144,18 +144,18 @@
             v_{\text{axle}} = r \frac{d\theta}{dt}
         \end{flalign}
 
-        Thus (the speeds, not the velocities are equal, hence the absolute value):
+        Thus (the speeds, not the velocities, are equal, hence the absolute value):
         \begin{align}
             \bigl|\frac{dx}{dt}\bigr| = \bigl|r \frac{d\theta}{dt}\bigr| \\
             \frac{dx}{dt} = \pm\; r \frac{d\theta}{dt}
         \end{align}
 
         However, it can be assumed that the square will roll to the right (in the positive $x$ direction), so the contact point will have to rotate counter-clockwise. Therefore, both $\frac{dx}{dt}$ and $\frac{d\theta}{dt}$ have to be positive. Hence:
-        \begin{equation}
+        \begin{equation}\label{eq:dxdt}
             \frac{dx}{dt} = r \frac{d\theta}{dt}
         \end{equation}
 
-        Therefore, there are two relations between the road and square curve:
+        Therefore, there are two relations between the road and the square curve:
         \begin{equation}
             \begin{cases}
                 r = - y \\
@@ -163,7 +163,7 @@
             \end{cases}
         \end{equation}
 
-        The $y$ part of the road curve can easily be found, hence:
+        The $y$ part of the road curve can be found easily, hence:
         \begin{equation}\label{eq:road_1}
             \begin{cases}
                 y = -r \\
@@ -193,7 +193,7 @@
             \theta(t) &= \arctan\frac{t}{1} = \arctan(t)
         \end{align}
 
-        These equations may be used to substitute into Equation~\ref{eq:road_1}, which is very easy for the $y$ part:
+        These equations may be used to substitute $r$ in Equation~\ref{eq:road_1}, which is very easy for the $y$ part:
         \begin{align}
             y &= -r = -\sqrt{1+t^2}
             % \frac{dx}{dt} &= r \frac{d\theta}{dt}
@@ -202,13 +202,12 @@
         For the $x$ part, the derivative of $\theta$ in respect to $t$ has to be found:
         \begin{align}
             \frac{d\theta}{dt} &= \frac{d}{dt} \arctan(t) \\
-            &= \frac{1}{1+t^2}
+            \frac{d\theta}{dt} &= \frac{1}{1+t^2}
         \end{align}
 
-        Then it can be substituted into the equation:
+        Then, it can be substituted into Equation~\ref{eq:dxdt}:
         \begin{align}
-            \frac{dx}{dt} &= r \frac{d\theta}{dt} \\
-            \frac{dx}{dt} &= \sqrt{1+t^2} \frac{1}{1+t^2} \\
+            \frac{dx}{dt} &= r \frac{d\theta}{dt} = \sqrt{1+t^2} \cdot \frac{1}{1+t^2} \\
             \frac{dx}{dt} &= \frac{1}{\sqrt{1+t^2}}
         \end{align}
 
@@ -218,7 +217,7 @@
             x(t) &= \int \frac{1}{\sqrt{1+t^2}} \;dt
         \end{align}
 
-        Which is an integral of the derivative of inverse hyperbolic sine function arsinh~\cite{oxford_dict}, therefore:
+        which is an integral of the derivative of inverse hyperbolic sine function arsinh~\cite{oxford_dict}, therefore:
         \begin{align}
             x(t) &= \text{arsinh}(t) + c 
         \end{align}
@@ -243,7 +242,7 @@
             y(x) = -\cosh(x)
         \end{align}
 
-        The obtained road function is actually an inverted catenary curve ($\cosh(x)$ is the catenary curve function). What is interesting is that the catenary is a curve formed by a hanging chain supported at its ends (even its name ``catenary'' is derived from latin word for ``chain'').~\cite{mathworld_catenary} The curve is also a very common shape in architecture. It can be seen graphed below along with some square sides:
+        The obtained road function is actually an inverted catenary curve ($\cosh(x)$ is the catenary curve function). Interestingly, the catenary is a curve formed by a hanging chain supported at its ends (even its name ``catenary'' is derived from latin word for ``chain'')~\cite{mathworld_catenary}. The curve is also a very common shape in architecture. It can be seen graphed below along with some square sides:
         
         \begin{figure}[H]
             \centering
@@ -252,7 +251,7 @@
         \end{figure}
         \footnotetext{All plots were created using the \textit{Matplotlib}~\cite{Matplotlib} Python package, unless stated otherwise}
 
-        It can be observed, that this shape is not the whole road, but only its fragment. It is due to the previous approximation of only one side. However, the road is periodical and needs to repeat every time the magnitude of the slope its tangent line is equal to $1$~\cite{Hall_Wagon_1992}.
+        It can be observed that this shape is not the whole road, but only its fragment. It is due to the previous approximation of only one side. However, the road is periodical and needs to repeat every time the magnitude of the slope of its tangent line is equal to $1$~\cite{Hall_Wagon_1992}.
 
         This is caused by the fact that when two consecutive catenaries intersect each other, we want the angle between their two tangent lines at the intersection to be equal to the angle of the square corner~-~$90\degree$, so that the corner of the square can ``fit''. 
 
@@ -261,7 +260,7 @@
             \tan\theta = \frac{m_1 - m_2}{1 + m_1 m_2}
         \end{equation}
 
-        Given that the angle we are looking for is $90\degree = \frac{\pi}{2}$, $\tan\theta$ should be undefined, so:
+        Given that the angle we are looking for is $90\degree$, $\tan\theta$ should be undefined ($\cos90\degree = 0$), thus:
         \begin{align}
             1 + m_1 m_2 = 0 \\
             m_1 m_2 = -1
@@ -276,7 +275,7 @@
         \end{figure}
         \footnotetext{The graph was created using the \textit{GeoGebra} software}
 
-        Given that the second tangent line is of the next catenary, its slope will be of the same magnitude, but opposite sign (as seen on the graph above). Thus:
+        Given that the second tangent line is of the next catenary, its slope will be of the same magnitude, but opposite sign (as seen in the graph above). Thus:
         \begin{align}
             m_2 = - m_1 \label{eq:tangent_intersection} \\
             m_1 (-m_1) = -1 \\
@@ -304,7 +303,7 @@
             x = \text{arsinh}(1) \quad\lor\quad x = \text{arsinh}(-1)
         \end{align}
 
-        The inverse hyperbolic sine is an odd function, which can be proven:
+        The inverse hyperbolic sine is an odd function, which can be proven as follows:
         \begin{align}
             \text{LHS} = -\text{arsinh}(x) \quad \text{RHS} = \text{arsinh}(-x)
         \end{align}
@@ -332,7 +331,7 @@
             y = - \cosh (x + 2k \;\text{arsinh}(1) ) \quad \text{where}\; k \in \mathbb{Z}
         \end{equation}
         
-        A 3-fragment road can be seen below:
+        A three-fragment road can be seen below:
         \begin{figure}[H]
             \centering
             \includegraphics[width=\linewidth]{images/road_3.png}
@@ -341,7 +340,7 @@
 
     \section{Rounding the square}
 
-        However, the bridge cannot be a polygon with sharp corners, as standing on just one point (vertex of the square) would be too unstable for such a big structure, as it weights 13 tons~\cite{bridge_newatlas}. Therefore, the corners of the square have to be rounded. This can be done by adding a circle of radius $b$ to each corner of the square. (In the actual bridge the radius is equal to $0.25$ when the side length of the square is set to $2$). The new shape can be seen on Figure~\ref{fig:rounded_square} below.
+        However, the bridge cannot be a polygon with sharp corners, as standing on just one point (vertex of the square) would be too unstable for such a big structure, as it weights 13 tons~\cite{bridge_newatlas}. Therefore, the corners of the square have to be rounded. This can be done by adding a circle of radius $b$ to each corner of the square. (In the actual bridge the radius is equal to $0.25$ when the side length of the square is set to $2$). The new shape can be seen in Figure~\ref{fig:rounded_square} below.
 
         \begin{figure}[H]
             \centering
@@ -391,7 +390,7 @@
             r = \sqrt{2}\;\bar{b} \cos(\alpha) + \sqrt{b^2 - 2\bar{b}^2 \sin^2(\alpha)}
         \end{align}
 
-        By making the base polar axis to be at angle $\frac{\pi}{4}$ clockwise to the x-axis, the angle $\alpha = \theta + \frac{\pi}{4}$. Additionally, by translating $\theta$ by multiplies of $\frac{\pi}{2}$, other corners can be found.~\cite{bridge_wolfram}
+        By making the base polar axis to be at angle $\frac{\pi}{4}$ clockwise to the x-axis, the angle $\alpha = \theta + \frac{\pi}{4}$. Additionally, by translating $\theta$ by multiplies of $\frac{\pi}{2}$, other corners can be found~\cite{bridge_wolfram}.
 
         Substituting $b=0.25$, which is the real value used for the Cody Dock bridge~\cite{bridge_wolfram}, the polar form of the rounded square is obtained:
         \begin{equation}
@@ -406,7 +405,7 @@
             y(\theta) = - \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) - \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
         \end{equation}
 
-        This way, we find $y$ in terms of the angle $\theta$. This parametrization will be easier for this part of the road. Hence, $x$ should also be found in terms of $\theta$.
+        This way, we find $y$ in terms of angle $\theta$. This parametrization will be easier for this part of the road. Hence, $x$ should also be found in terms of $\theta$.
 
         From Equation~\ref{eq:road_1} it is known that:
         \begin{equation}
@@ -510,7 +509,7 @@
         \end{align}
         % x = 0.06606459412
 
-        Hence, to have the centre of the piece at $x=0$, the road has to be shifted left by $0.0661$ and thus it can be seen on Figure~\ref{fig:corner_road_centered} below:
+        Hence, to have the centre of the piece at $x=0$, the road has to be shifted to the left by $0.0661$ and thus it can be seen in Figure~\ref{fig:corner_road_centered} below:
         % \begin{align}
         %     x_0 = \frac{-0.0661}{2} = -0.0331
         % \end{align}
@@ -519,20 +518,20 @@
             \caption{Centred rounded corner road}\label{fig:corner_road_centered}
         \end{figure}
 
-        To insert the new road piece into the whole road, its centre has to be where the catenary curves intersect. The first such point is at $x=\text{arsinh}(1)$ (from Equation~\ref{eq:x_cosh_end}). Therefore, the corner road has to be shifted horizontally by additional $\text{arsinh}(1) \approx 0.881$ to the right. Combining this with the $0.0661$ shift to the left, we get in total a shift to the right by approximately $0.815$. Hence, a fragment of the final road can be seen on Figure~\ref{fig:corner_road_full} below:
+        To insert the new road piece into the whole road, its centre has to be where the catenary curves intersect. The first such point is at $x=\text{arsinh}(1)$ (from Equation~\ref{eq:x_cosh_end}). Therefore, the corner road has to be shifted horizontally by additional $\text{arsinh}(1) \approx 0.881$ to the right. Combining this with the $0.0661$ shift to the left, we get in total a shift to the right by approximately $0.815$. Hence, a fragment of the final road can be seen in Figure~\ref{fig:corner_road_full} below:
         \begin{figure}[H]
             \includegraphics[width=\linewidth]{images/road_with_corner.png}
             \caption{Road for the square with rounded corners}\label{fig:corner_road_full}
         \end{figure}
 
-        For the bridge to make a $180\degree$ rotation, the square has to ``tumble over'' two times. Therefore, the catenaries and the ``corner parts'' have to repeat three and two times respectively. Given that from the centre of the catenary to the intersection is the distance $\text{arsinh}(1)$, the second corner part will be at $x=3\text{arsinh}(1)$. Hence, the full road with the rounded square can be seen on the Figure~\ref{fig:bridge_full}:
+        For the bridge to make a $180\degree$ rotation, the square has to ``tumble over'' twice. Therefore, the catenaries and the ``corner parts'' have to repeat three and two times, respectively. Given that from the centre of the catenary to the intersection is the distance $\text{arsinh}(1)$, the second corner part will be at $x=3\text{arsinh}(1)$. Hence, the full road with the rounded square can be seen in Figure~\ref{fig:bridge_full}:
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.75\linewidth]{images/road_with_square.png}
             \caption{Full road plotted along with the bridge}\label{fig:bridge_full}
         \end{figure}
 
-        Additionally, since the bridge should stand still on the beginning and end of the road, the catenary curves can be restricted to $x \in [0, 4\text{arsinh}(1)]$ and a $y=-1$ line can be thus added for $x \in [-1, 0] \cup [4\text{arsinh}(1), 4\text{arsinh}(1)+1]$. The centre of the corner road piece is at $x=\text{arsinh}(1)$ and the width of this piece is around $0.3$, so the first catenary curve intersects the corner road at $x \approx \text{arsinh}(1) - 0.15$. Hence, the catenaries were restricted to $y\in [-\text{cosh}(\text{arsinh}(1) - 0.15), -1] \approx y \in [-1.28, -1]$. Hence, the final road can be seen in Figure~\ref{fig:bridge_final} below:
+        Additionally, since the bridge should stand still at the beginning and end of the road, the catenary curves can be restricted to $x \in [0, 4\text{arsinh}(1)]$ and a $y=-1$ line can be thus added for $x \in [-1, 0] \cup [4\text{arsinh}(1), 4\text{arsinh}(1)+1]$. The centre of the corner road piece is at $x=\text{arsinh}(1)$ and the width of this piece is around $0.3$, so the first catenary curve intersects the corner road at $x \approx \text{arsinh}(1) - 0.15$. Hence, the catenaries were restricted to $y\in [-\text{cosh}(\text{arsinh}(1) - 0.15), -1] \approx y \in [-1.28, -1]$. Hence, the final road can be seen in Figure~\ref{fig:bridge_final} below:
 
         \begin{figure}[H]
             \centering
@@ -540,7 +539,7 @@
             \caption{Final road for the rounded square}\label{fig:bridge_final}
         \end{figure}
 
-        Thus, by finding the polar form of the rounded corner and then approximating its road fragment, a full road (which should have the same shape as the one currently in London) was calculated. The road can be visually evaluated in the Figure~\ref{fig:masterplan_overlayed} below, by comparing it to the original sketches of the Cody Dock bridge (e.g.\ the bridge obtained in the calculations is not as high as the one in the masterplan, as its thickness was omitted):
+        Thus, by finding the polar form of the rounded corner and then approximating its road fragment, a full road (which should have the same shape as the one currently in London) was calculated. The road can be visually evaluated in Figure~\ref{fig:masterplan_overlayed} below, by comparing it to the original sketches of the Cody Dock bridge (e.g.\ the bridge obtained in the calculations is not as high as the one in the masterplan, as its thickness was omitted):
 
         \begin{figure}[H]
             \centering
@@ -557,7 +556,7 @@
             \caption{Triangle crashing into its own road~\cite{Hall_Wagon_1992}}\label{fig:triangle_crash}
         \end{figure}
 
-        This problem can be fixed by rounding the corners of the triangle~\cite{Hall_Wagon_1992}, but it may also prove interesting to find the road for the not-rounded triangle.
+        This problem can be fixed by rounding corners of the triangle using circles with radii equal to $4.2\%$ of the side length~\cite{Hall_Wagon_1992,bridge_wolfram}, but it may still prove interesting to find the road for the not-rounded triangle.
 
         Similarly as with the square, we start with one side and get the $y= -\cosh x$ road, but this time the angle of intersection of the catenaries should be $60\degree = \frac{\pi}{3} \;\text{rad}$ (the internal angle of an equilateral triangle).
 
@@ -575,7 +574,7 @@
             m_1 = - \sqrt{3} \quad \lor \quad m_1 = \frac{\sqrt{3}}{3}
         \end{align}
 
-        However, the magnitude of the slope has to be bigger than $1$, as with smaller slopes, the angle ``on top of the road'' is greater. (The other value gives an angle equal to $120\degree$ instead of $60\degree$) Thus, the correct result is:
+        However, the magnitude of the slope has to be bigger than $1$, as with smaller slopes, the angle ``on top of the road'' is greater (the other value gives an angle equal to $120\degree$ instead of $60\degree$). Thus, the correct result is:
         \begin{align*}
             |m| = \sqrt{3}
         \end{align*}
@@ -619,11 +618,11 @@
 
         It can immediately be seen that the side of the triangle is much larger than the width of one catenary ($2\sqrt{3} > 2\text{arsinh}\sqrt{3}$), which visually shows why the triangle crashes into its own road and is thus unable to rotate about it.
 
-        Moreover, a triangular shape is not a good pick for a bridge, as when it would be rotated by half a revolution, so that ships could swim beneath it, it would stand on its own vertex. Such solution would be very dangerous in real life due to its instability (also due to the steep road, big friction force would be needed to prevent slipping of the bridge during rolling). The standing-on-vertex problem is actually the case for all odd-sided polygons, so it is perhaps more interesting to look at an even-sided polygon~-~more precisely a regular hexagon.
+        A triangular shape is also not a good pick for a bridge, because if it was rotated by half a revolution, so that ships could swim beneath it, it would stand on its own vertex. Such solution would be very dangerous in real life due to its instability. Moreover, due to the steep road, a great friction force would be needed to prevent slipping of the bridge during rolling~\cite{bridge_wolfram}. The standing-on-vertex problem is actually the case for all odd-sided polygons, so it is perhaps more interesting to look at an even-sided polygon~-~more precisely a regular hexagon.
 
         Once again, we start with only one side rolling, so the road is $y = -\cosh(x)$. However, in a regular hexagon, all interior angles are $120\degree = \frac{2\pi}{3}$ rad, which should be the angle of intersection of two consecutive catenaries. 
         
-        Thus, at the point of intersection (using Equation~\ref{eq:lines_angle},~\ref{eq:tangent_intersection}):
+        Thus, at the point of intersection (using Equations~\ref{eq:lines_angle},~\ref{eq:tangent_intersection}):
         \begin{align}
             \tan \frac{2\pi}{3} = \frac{2m_1}{1 - {m_1}^2} \\
             - \sqrt{3} = \frac{2m_1}{1 - {m_1}^2} \\
@@ -650,13 +649,13 @@
             \caption{Hexagon with its own road}\label{fig:hexagon}
         \end{figure}
 
-        It is interesting to note, that in this case there have to be 4 catenaries in order for the polygon to rotate by $180\degree$. The square needed only 3 curves, while the triangle only 2 (or actually $2.5$~-~to keep it balanced on the vertex when the bridge is open). However, the more of the catenaries there are, the shorter they are, so the road becomes actually shorter horizontally. As the number of sides will increase and the shape will approach a circle, the length of the road to rotate by half a revolution will approach $\pi$ (half of the perimeter of a circle with radius $1$).
+        It is interesting to note that in this case there have to be 4 catenaries in order for the polygon to rotate by $180\degree$. The square needed only 3 curves, while the triangle only 2 (or actually $2.5$~-~to keep it balanced on the vertex when the bridge is open). However, the more catenaries there are, the shorter they are, so the road becomes actually shorter horizontally. As the number of sides will increase and the shape will approach a circle, the length of the road to rotate by half a revolution will approach $\pi$ (half of the perimeter of a circle with radius $1$).
 
-        Another observation that can be made is that the more sides the polygon has, the sooner the catenary is truncated and the less steep it becomes. This is quite intuitive, because as the shape becomes more circular, the road is more and more like the one ideal for a circle~-~a straight line.
+        Another observation that can be made is that the more sides the polygon has, the sooner the catenary is truncated and less steep it becomes. This is quite intuitive, because as the shape becomes more circular, the road is more and more like the one ideal for a circle~-~a straight line.
 
     \section{Possible further research}
 
-        Another very interesting step during the design of the Cody Dock bridge was finding the precise location and angle of cuts in the bridge, so it can then perfectly fit the ``teeth'' on the road. This process can be seen in Figures~\ref{fig:teeth1} and~\ref{fig:teeth2} below:
+        Another very interesting step during the design of the Cody Dock bridge was finding the precise location and angle of cuts in the bridge, so that it could perfectly fit the ``teeth'' on the road. This process can be seen in Figures~\ref{fig:teeth1} and~\ref{fig:teeth2} below:
 
         \begin{figure}[H]
             \centering
@@ -674,9 +673,9 @@
             \caption{Finding location and angle of cuts in the bridge frame~\cite{parker.2023}}
         \end{figure}
      
-        By ``rolling'' the track instead of bridge, the resultant intersection of the track path and bridge frame create ideal points at ideal angles to make the cut-outs, so that the bridge can miss the pins in the road entirely while rolling~\cite{parker.2023}.
+        By ``rolling'' the track instead of bridge, the resulting intersection of the track path and bridge frame create ideal points at ideal angles to make the cut-outs, so that the bridge can miss the pins in the road entirely while rolling~\cite{parker.2023}.
         
-        This concept is very fascinating and useful when dealing with rolling structure in real world, but the Mathematics behind it are unfortunately very much out of scope of this essay. However, expanding on this topic might have been intriguing.
+        This concept is very fascinating and useful when dealing with a rolling structure in the real world, but the Mathematics behind it are unfortunately very much out of the scope of this essay. However, expanding on this topic might be intriguing.
 
     \section{Conclusion}
 
@@ -684,7 +683,7 @@
 
         When designing perfect roads for non-circular rolling shapes, the catenaries become very useful, irrespective of the polygon that the ``wheel'' is. However, when we try to apply those concepts of rolling polygons in the real world, like the architects of Cody Dock bridge did, some adjustments have to be made.
 
-        Ironically, to make the non-circular rolling bridges a reality, circles have to be added to them. Thanks to the added rounded corners, the pressure at the vertices can be decreased which improves the structural integrity of the bridge. However, it is all at the cost of catenaries. The roads required for circles, which have their mass centres outside of themselves, are way more complicated than simple catenaries. Hence, in the real world, where physics come into play, the catenaries seem to be not enough to construct such innovative bridges. More sophisticated integration methods (or simply approximations) are also required to find the not-easy road fragments.
+        Ironically, to make the non-circular rolling bridges a reality, circles have to be added to them. Thanks to the added rounded corners, the pressure at the vertices can be decreased, which improves the structural integrity of the bridge. However, it is all at the cost of catenaries. The roads required for circles, which have their mass centres outside of themselves, are way more complicated than simple catenaries. Hence, in the real world, where physics come into play, the catenaries seem to be not enough to construct such innovative bridges. More sophisticated integration methods (or simply approximations) are also required to find the not-easy road fragments.
 
         Even though the innovations that the catenaries bring into the world of non-circular wheels are not very practical, they show that Mathematics as an area of knowledge is very interconnected and that those connections appear even where we least expect them. Moreover, using those interconnections in such unusual ways can be great for artists or engineers (as in the Cody Dock case) trying to convey some message and inspire others to dive into Mathematics. The message seems to come across, as people are analysing the Cody Dock bridge and its functioning. This is exemplified by the fact that the bridge won the \textit{2023 Bridges Design Award}~\cite{bridges_awards}. Overall, the use of catenary curves is necessary when constructing non-circular, ``rolling'' bridges and perhaps also in the future when constructing many more seemingly non-practical structures.
 
