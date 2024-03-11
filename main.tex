@@ -99,7 +99,7 @@
 
     \section{Defining ``smooth'' rolling}
 
-        In order to even start the discussion, ``smooth rolling'' has to be defined. If we e.g.\ take a circle shape and roll it on a straight surface, then it will roll ``smoothly''~-~its centre of mass will move only horizontally and not vertically. However, when a square is rolled on the same surface, its centre of mass will move vertically as well and hence its movement will not be ``smooth''~\cite{morphocular.2022,Hall_Wagon_1992}.
+        In order to even start the discussion, ``smooth rolling'' has to be defined. If one takes e.g.\ a circle shape and roll it on a straight surface, then it will roll ``smoothly''~-~its centre of mass will move only horizontally and not vertically. However, when a square is rolled on the same surface, its centre of mass will move vertically as well and hence its movement will not be ``smooth''~\cite{morphocular.2022,Hall_Wagon_1992}.
 
         Even so, why is it important to roll ``smoothly''? The answer is connected to physics, more specifically to the work needed to be done to roll the shape. If the figure is rolled ``smoothly'', then there is no need to do work in moving the centre of mass up and down. Therefore, in the ideal world, the shape will roll without any work needed to be done (in reality, there is always some friction, so some work will always be needed to be done, but it will be very little~-~that is why the Cody Dock bridge can be controlled by a hand crank).
 
@@ -253,14 +253,14 @@
 
         It can be observed that this shape is not the whole road, but only its fragment. It is due to the previous approximation of only one side. However, the road is periodical and needs to repeat every time the magnitude of the slope of its tangent line is equal to $1$~\cite{Hall_Wagon_1992}.
 
-        This is caused by the fact that when two consecutive catenaries intersect each other, we want the angle between their two tangent lines at the intersection to be equal to the angle of the square corner~-~$90\degree$, so that the corner of the square can ``fit''. 
+        This is caused by the fact that when two consecutive catenaries intersect each other, the angle between their two tangent lines at the intersection should be equal to the angle of the square corner~-~$90\degree$, so that the corner of the square can ``fit''. 
 
         The angle $\theta$ between two lines of slopes $m_1$ and $m_2$ can be given by the following equation (derived from $m=\frac{\Delta y}{\Delta x}=\tan\alpha$):
         \begin{equation}\label{eq:lines_angle}
             \tan\theta = \frac{m_1 - m_2}{1 + m_1 m_2}
         \end{equation}
 
-        Given that the angle we are looking for is $90\degree$, $\tan\theta$ should be undefined ($\cos90\degree = 0$), thus:
+        Given that the angle should be equal to $90\degree$, $\tan\theta$ should be undefined ($\cos90\degree = 0$), thus:
         \begin{align}
             1 + m_1 m_2 = 0 \\
             m_1 m_2 = -1
@@ -362,14 +362,15 @@
         \end{figure}
         \footnotetext{This diagram was created using the \textit{GeoGebra} software}
 
-        Let $O$ be the origin point $(0,0)$, $A(1-b,b-1)$ be the centre of the circle and $B$ be an arbitrary point on the rounded corner. Then, the $r$ we are looking for is the length of $|OB|$. The situation can be seen in Figure~\ref{fig:corner_cos_rule}.
+        Let $O$ be the origin point $(0,0)$, $A(1-b,b-1)$ be the centre of the circle and $B$ be an arbitrary point on the rounded corner. Then, the radial distance $r$ is the length of $|OB|$. The situation can be seen in Figure~\ref{fig:corner_cos_rule}.
 
         Now, using the property of a square diagonal $|OA| = \sqrt{2} (1-b)$. For clarity, let $\bar{b} = (1-b)$. Then, $|OA| = \sqrt{2}\;\bar{b}$. Let $\alpha = \angle BOA$, then by cosine rule:
         \begin{align}
             b^2 = (\sqrt{2}\;\bar{b})^2 + r^2 - 2 r \sqrt{2} \;\bar{b} \cos(\alpha) \\
             b^2 = 2\bar{b}^2 + r^2 - 2 \sqrt{2} r \bar{b} \cos(\alpha)
         \end{align}
-        Thus, we obtain a quadratic equation with $r$:
+
+        Thus, a quadratic equation with $r$ can be obtained:
         \begin{flalign}
             r^2 &- 2 \sqrt{2}\;\bar{b} \cos(\alpha) r + 2\bar{b}^2 - b^2 = 0 \\
             \Delta &= (- 2 \sqrt{2}\;\bar{b} \cos(\alpha))^2 - 4 (2\bar{b}^2 - b^2) \\
@@ -405,7 +406,7 @@
             y(\theta) = - \frac{3\sqrt{2}}{4} \cos (\frac{\pi}{4} + \theta) - \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
         \end{equation}
 
-        This way, we find $y$ in terms of angle $\theta$. This parametrization will be easier for this part of the road. Hence, $x$ should also be found in terms of $\theta$.
+        This way, $y$ can be found in terms of angle $\theta$. This parametrization will be easier for this part of the road. Hence, $x$ should also be found in terms of $\theta$.
 
         From Equation~\ref{eq:road_1} it is known that:
         \begin{equation}
@@ -447,7 +448,7 @@
             \theta_{n+1} = \theta_n +h
         \end{align}
 
-        However, this expression will be difficult to use together with $I_1(\theta)$, so we will have to also express $v$ in terms of $\theta$ instead of some arbitrary $n$. The derivative of $v$ can be found really easily:
+        However, this expression will be difficult to use together with $I_1(\theta)$, so $v$ will also have to be expressed in terms of $\theta$ instead of some arbitrary $n$. The derivative of $v$ can be found really easily:
         \begin{align}
             v'(\theta) = \sqrt{\frac{1}{16} - \frac{9}{8} \sin^2 (\frac{\pi}{4}+\theta)}
         \end{align}
@@ -491,7 +492,7 @@
         \end{align}
         \[ \theta \in [- \text{arccot}(\frac{3}{4}), \;\text{arccot}(\frac{3}{4}) - \frac{\pi}{2}] \]
 
-        If we let $v(-\text{arccot}\frac{3}{4}) = 0$ and $h=0.001$, the x and y values can be calculated using the Python code seen in Appendix~\ref{app:euler_python}. By plotting those points, the road can be seen in Figure~\ref{fig:corner_road} below:
+        Let $v(-\text{arccot}\frac{3}{4}) = 0$ and $h=0.001$, then x and y values can be calculated using the Python code seen in Appendix~\ref{app:euler_python}. By plotting these points, the road can be seen in Figure~\ref{fig:corner_road} below:
         \begin{figure}[H]
             \includegraphics[width=\linewidth]{images/corner_road.png}
             \caption{Road for the rounded corner}\label{fig:corner_road}
@@ -518,7 +519,7 @@
             \caption{Centred rounded corner road}\label{fig:corner_road_centered}
         \end{figure}
 
-        To insert the new road piece into the whole road, its centre has to be where the catenary curves intersect. The first such point is at $x=\text{arsinh}(1)$ (from Equation~\ref{eq:x_cosh_end}). Therefore, the corner road has to be shifted horizontally by additional $\text{arsinh}(1) \approx 0.881$ to the right. Combining this with the $0.0661$ shift to the left, we get in total a shift to the right by approximately $0.815$. Hence, a fragment of the final road can be seen in Figure~\ref{fig:corner_road_full} below:
+        To insert the new road piece into the whole road, its centre has to be where the catenary curves intersect. The first such point is at $x=\text{arsinh}(1)$ (from Equation~\ref{eq:x_cosh_end}). Therefore, the corner road has to be shifted horizontally by additional $\text{arsinh}(1) \approx 0.881$ to the right. Combining this with the $0.0661$ leftward shift, a shift to the right by approximately $0.815$ is obtained. Hence, a fragment of the final road can be seen in Figure~\ref{fig:corner_road_full} below:
         \begin{figure}[H]
             \includegraphics[width=\linewidth]{images/road_with_corner.png}
             \caption{Road for the square with rounded corners}\label{fig:corner_road_full}
@@ -558,7 +559,7 @@
 
         This problem can be fixed by rounding corners of the triangle using circles with radii equal to $4.2\%$ of the side length~\cite{Hall_Wagon_1992,bridge_wolfram}, but it may still prove interesting to find the road for the not-rounded triangle.
 
-        Similarly as with the square, we start with one side and get the $y= -\cosh x$ road, but this time the angle of intersection of the catenaries should be $60\degree = \frac{\pi}{3} \;\text{rad}$ (the internal angle of an equilateral triangle).
+        Similarly as with the square, one can start with one side and get the $y= -\cosh x$ road, but this time the angle of intersection of the catenaries should be $60\degree = \frac{\pi}{3} \;\text{rad}$ (the internal angle of an equilateral triangle).
 
         Using Equation~\ref{eq:lines_angle}:
         \begin{align}
@@ -620,7 +621,7 @@
 
         A triangular shape is also not a good pick for a bridge, because if it was rotated by half a revolution, so that ships could swim beneath it, it would stand on its own vertex. Such solution would be very dangerous in real life due to its instability. Moreover, due to the steep road, a great friction force would be needed to prevent slipping of the bridge during rolling~\cite{bridge_wolfram}. The standing-on-vertex problem is actually the case for all odd-sided polygons, so it is perhaps more interesting to look at an even-sided polygon~-~more precisely a regular hexagon.
 
-        Once again, we start with only one side rolling, so the road is $y = -\cosh(x)$. However, in a regular hexagon, all interior angles are $120\degree = \frac{2\pi}{3}$ rad, which should be the angle of intersection of two consecutive catenaries. 
+        Once again, one should consider only one side rolling, so the road is $y = -\cosh(x)$. However, in a regular hexagon, all interior angles are $120\degree = \frac{2\pi}{3}$ rad, which should be the angle of intersection of two consecutive catenaries. 
         
         Thus, at the point of intersection (using Equations~\ref{eq:lines_angle},~\ref{eq:tangent_intersection}):
         \begin{align}
@@ -632,7 +633,7 @@
             m_1 = \sqrt{3} \quad \lor \quad m_1 = - \frac{\sqrt{3}}{3}
         \end{align}
 
-        However, now we want $|m|<1$, as the angle ``on top of the catenary'' should be obtuse. Thus:
+        However, now the magnitude of the slope should be less than 1 ($|m|<1$), as the angle ``on top of the catenary'' should be obtuse. Thus:
         \begin{align}
             |m| = \frac{\sqrt{3}}{3} 
         \end{align}
@@ -681,7 +682,7 @@
 
         Catenary curves are usually thought of as curves that can only describe behaviours of chains pulled down by gravity. That is actually exactly what they do, but there are still applications for them outside of this very specific area.
 
-        When designing perfect roads for non-circular rolling shapes, the catenaries become very useful, irrespective of the polygon that the ``wheel'' is. However, when we try to apply those concepts of rolling polygons in the real world, like the architects of Cody Dock bridge did, some adjustments have to be made.
+        When designing perfect roads for non-circular rolling shapes, the catenaries become very useful, irrespective of the polygon that the ``wheel'' is. However, when one tries to apply those concepts of rolling polygons in the real world, like the architects of Cody Dock bridge did, some adjustments have to be made.
 
         Ironically, to make the non-circular rolling bridges a reality, circles have to be added to them. Thanks to the added rounded corners, the pressure at the vertices can be decreased, which improves the structural integrity of the bridge. However, it is all at the cost of catenaries. The roads required for circles, which have their mass centres outside of themselves, are way more complicated than simple catenaries. Hence, in the real world, where physics come into play, the catenaries seem to be not enough to construct such innovative bridges. More sophisticated integration methods (or simply approximations) are also required to find the not-easy road fragments.
 
