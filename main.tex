@@ -99,11 +99,11 @@
 
     \section{Defining ``smooth'' rolling}
 
-        In order to even start the discussion, ``smooth rolling'' has to be defined. If one takes e.g.\ a circle shape and roll it on a straight surface, then it will roll ``smoothly''~-~its centre of mass will move only horizontally and not vertically. However, when a square is rolled on the same surface, its centre of mass will move vertically as well and hence its movement will not be ``smooth''~\cite{morphocular.2022,Hall_Wagon_1992}.
+        In order to even start the discussion, ``smooth rolling'' has to be defined. If one would take e.g.\ a circle shape and roll it on a straight surface, then it will roll ``smoothly''~-~its centre of mass will move only horizontally and not vertically. However, when a square is rolled on the same surface, its centre of mass will also move vertically and hence its movement will not be ``smooth''~\cite{morphocular.2022,Hall_Wagon_1992}.
 
-        Even so, why is it important to roll ``smoothly''? The answer is connected to physics, more specifically to the work needed to be done to roll the shape. If the figure is rolled ``smoothly'', then there is no need to do work in moving the centre of mass up and down. Therefore, in the ideal world, the shape will roll without any work needed to be done (in reality, there is always some friction, so some work will always be needed to be done, but it will be very little~-~that is why the Cody Dock bridge can be controlled by a hand crank).
+        Even so, why is it important to roll ``smoothly''? The answer is connected to physics, more specifically to the work needed to be done to roll the shape. If the figure is rolled ``smoothly'', then no work has to be done in moving the centre of its mass up and down. Therefore, in an ideal world, the shape would roll without any additional work being done on it (in reality, there are always some frictional forces, so some work will have to be done, but it will be very small~-~that is why the Cody Dock bridge can be controlled by a hand crank).
 
-        Another important property for ``rolling'' is that when any point of the shape is in contact with the road surface, its velocity relative to it has to be zero. Otherwise, if the point was moving while touching the road, it would be sliding and not rolling~\cite{morphocular.2022}. 
+        Another important property for ``rolling'' without slipping is that when any point of the shape is in contact with the road surface, its velocity relative to the road has to be zero. Otherwise, if the point was moving while touching the road, it would be sliding and not rolling~\cite{morphocular.2022,Tsokos_2014}.
         
         Thus, there must exist a surface (other than a straight road) on which a square can roll ``smoothly''. It will be described parametrically as follows:
         \begin{align}
@@ -113,7 +113,7 @@
             \end{cases}
         \end{align}
 
-        Similarly, the square shape will also be parametrized. However, it will be parametrized in polar coordinates, as this representation will be easier to work with. The polar coordinate system is an alternative coordinate system in which two values $r$ and $\theta$ are used instead of $x$ and $y$. $r$ is called the radial distance and it is the distance from the point to the pole (which is a point chosen as the origin of the system). The angle $\theta$ is the angle between the polar axis (chosen arbitrarily when describing the system, usually parallel to the x-axis) and the line joining the pole with the point being described, calculated in an arbitrary (usually counter-clockwise) direction~\cite{Sundstrom2021Polar}. This can be seen illustrated in Figure~\ref{fig:polar_definition} below:
+        Similarly, the square shape will also be parametrized. However, it will be parametrized in polar coordinates, as this representation will be easier to work with. The polar coordinate system is an alternative coordinate system in which two values $r$ and $\theta$ are used instead of $x$ and $y$. $r$ is called the radial distance and it is the distance from the point to the pole (which is a point chosen as the origin of the system). The angle $\theta$ is the angle between the polar axis (chosen arbitrarily when describing the system, usually parallel to the x-axis) and the line joining the pole with the point being described, calculated in an arbitrary (usually counter-clockwise) direction~\cite{Sundstrom2021Polar}. This coordinate system can be seen illustrated in Figure~\ref{fig:polar_definition} below:
 
         \begin{figure}[]
             \centering\includegraphics[width=0.3\linewidth]{images/polar_definition.png}
@@ -128,32 +128,32 @@
             \end{cases}
         \end{align}
 
-        To simplify the calculations, the line of movement of the centre of mass of the square will be chosen to be the x-axis. Hence, the road will have to be under it, so $y(t) < 0$. Likewise, the centre of mass of the square point (axle) will be chosen to be at the origin of its local coordinate system. The parameter $t$ can be thought of as the time at which there is a point on the square and on the road, which are touching. Therefore, the point $(x, y)$ on the road will be the contact point on the road curve and similarly the point $(r, \theta)$ will be the contact point on the square curve.
+        To simplify the calculations, the line of movement of the centre of mass of the square is chosen to be the x-axis. Hence, the road will have to be under it, so $y(t) < 0$. Likewise, the centre of mass of the square point (later called axle) was chosen to be at the origin of its local coordinate system. The parameter $t$ can be thought of as the time at which there is a point on the square and on the road, which are touching. Therefore, the point $(x, y)$ in the road system will be the contact point on the road curve and similarly the point $(r, \theta)$ will be the contact point on the square curve.
 
-        Now, the relations between those two curves need to be found. If it is assumed that the square is on the road, then it must be touching it at some point. Moreover, the point of contact is not a random point on the curve, but the one directly beneath the centre mass point (so the origin point). Therefore, it has to be the $r(t)$ point on the square curve. Hence, the distance from axle to the road must be equal to the road's depth ($-y(t)$):
+        Now, the relations between those two curves need to be found. If it is assumed that the square is on the road, then it must be touching it at some point. Moreover, the point of contact is not a random point on the square, but the one directly beneath the centre mass (origin) point~\cite{morphocular.2022}. This point is at distance of $r(t)$ from the axle in the square system. Hence, this distance must be equal to the road's depth ($-y(t)$):
         \begin{equation}
             r(t) = - y(t)
         \end{equation}
 
-        Another relation can be found by looking at the velocity of the contact point. It was earlier defined that during contact the velocity of a point on the rim relative to the road has to be zero. However, when it is looked at from the perspective of the axle point, all points on the rim are constantly moving (rotating) while the square is rolling. Therefore, if the contact point is stationary relative to the ground, but moving relative to the centre point and the whole square is moving relative to the ground, then the speed of the square relative to the road has to be equal to the angular velocity of the contact point~\cite{morphocular.2022}. 
+        Another relation can be found by looking at the velocity of the contact point. It was earlier defined that during contact the velocity of a point on the rim relative to the road has to be zero. However, when it is looked at from the perspective of the axle point, all points on the rim are constantly moving (rotating) while the square is rolling. Therefore, if the contact point is stationary relative to the ground, but moving relative to the centre point and the whole square is moving relative to the ground, then the speed of the square relative to the road has to be equal to the speed of the contact point in relation to the axle~\cite{morphocular.2022}. 
         
-        Velocity of the square relative to the road is simply $\frac{dx}{dt}$, while the angular velocity $\omega$ is by definition equal to $\frac{d\theta}{dt}$~\cite{angular_velocity}:
+        Velocity of the square relative to the road is simply $\frac{dx}{dt}$, while the angular velocity of the contact point $\omega$ is by definition equal to $\frac{d\theta}{dt}$~\cite{angular_velocity}:
         \begin{flalign}
             v_{\text{square}} = \frac{dx}{dt} \\
             \omega_{\text{contact point}} = \frac{d\theta}{dt}
         \end{flalign}
 
-        Velocity relative to the axle point of a point with angular velocity $\omega$ is from definition~\cite{angular_velocity}:
+        Linear velocity of the contact point with angular velocity $\omega$ is from definition~\cite{angular_velocity}:
         \begin{align}
             v_{\text{contact point}} = r \cdot \omega
         \end{align}
 
-        Hence, the velocity relative to the axle can be calculated from its angular velocity:
+        Hence, the velocity relative to the axle can be calculated from the point's angular velocity:
         \begin{align}
             v_{\text{contact point}} = r \frac{d\theta}{dt}
         \end{align}            
 
-        Thus, because the speeds are equal:
+        Thus, because the speeds $|v_{\text{square}}|$ and $|v_{\text{contact point}}|$ are equal:
         \begin{align}
             \bigl|\frac{dx}{dt}\bigr| = \bigl|r \frac{d\theta}{dt}\bigr| \\
             \frac{dx}{dt} = \pm\; r \frac{d\theta}{dt}
@@ -182,13 +182,15 @@
 
     \section{Finding the road for a rolling square}
 
-        Now, the parametric functions for a square need to be found in order to find the road curve. For the simplicity of this calculation let the side length of the square be 2. To find the equations it is easiest to start with just a single side of the square starting at $(1, -1)$ and ending at $(1, 1)$. Therefore, $x$ coordinate of this side stays constant and the $y$ coordinate varies from $-1$ to $1$. The parametric equations are as follows:
+        In order to find the road curve, parametric representation of a square needs to be found. For the simplicity of calculations, let side length of the square be $2$. To find the equations describing the square, it is easiest to start with just a single side of the square starting at $(1, -1)$ and ending at $(1, 1)$. Therefore, $x$ coordinate of this side stays constant and the $y$ coordinate varies from $-1$ to $1$. The parametric equations are as follows:
         \begin{align}
+            \begin{cases}
             x(t) = 1 \\
             y(t) = t
+            \end{cases}
         \end{align}
 
-        Those formulas can be converted to polar form using the following equations~\cite{polar_rectangular}:
+        Those equations can be converted to polar form using the following formulas~\cite{polar_rectangular}:
         \begin{align}
             \begin{cases}
                 r &= \sqrt{x^2 + y^2} \\
@@ -231,7 +233,7 @@
             x(t) &= \text{arsinh}(t) + c 
         \end{align}
 
-        Hence, the road functions become ($c$ can be set to 0, as it is just a horizontal shift):
+        Hence, the road functions become ($c$ can be set to $0$, as it is just a horizontal shift):
         \begin{equation}\label{eq:road_2}
             \begin{cases}
                 x(t) = \text{arsinh}(t) \\
@@ -239,7 +241,7 @@
             \end{cases}
         \end{equation}
 
-        They can be then turned back into cartesian form, as $\sinh(\text{arsinh}(t)) = t$:
+        They can be then turned back into Cartesian form, as $\sinh(\text{arsinh}(t)) = t$:
         \begin{align}
             \sinh(x) = \sinh(\text{arsinh}(t)) \\
             t = \sinh(x) \\
@@ -252,7 +254,7 @@
             y(x) = -\cosh(x)
         \end{align}
 
-        The obtained road function is actually an inverted catenary curve ($\cosh(x)$ is the catenary curve function). Interestingly, the catenary is a curve formed by a hanging chain supported at its ends, even its name ``catenary'' is derived from latin word for ``chain''~\cite{mathworld_catenary}. The curve is also a very common shape in architecture. It can be seen graphed below along with some square sides ``rolling'' on it:
+        The obtained road function is actually an inverted catenary curve ($\cosh(x)$ is the catenary curve function). Interestingly, the catenary is a curve formed by a hanging chain supported at its ends, even its name ``catenary'' is derived from latin word for ``chain''~\cite{mathworld_catenary}. The curve is also a very common shape in architecture. The inverted catenary can be seen graphed below along with some square sides ``rolling'' on it:
         
         \begin{figure}[H]
             \centering
@@ -336,7 +338,7 @@
             x = \pm \text{arsinh}(1)
         \end{equation} 
 
-        Interestingly, it has also been found that for any polygon of n-sides, if the road is truncated at $x = \pm \; \text{arsinh}(\tan\frac{\pi}{n})$, then the amount of rotation to get the polygon in the cusp is $\frac{2\pi}{n}$~\cite{Hall_Wagon_1992}.
+        Interestingly, it is the case that for any n-sided regular polygon, the road has to be truncated at $x = \pm \; \text{arsinh}(\tan\frac{\pi}{n})$~\cite{Hall_Wagon_1992}.
         
         As the road for a square is periodic, the next road fragments should have the equation~\cite{Hall_Wagon_1992}:
         \begin{equation}
@@ -352,7 +354,7 @@
 
     \section{Rounding the square}
 
-        However, the bridge cannot be a polygon with sharp corners, as standing on just one point (vertex of the square) would be too unstable for such a big structure, as it weights 13 tons~\cite{bridge_newatlas}. Therefore, the corners of the square have to be rounded to increase area of contact and decrease pressure. This can be done by adding a circle of radius $b$ to each corner of the square. In the actual bridge the radius $b$ is equal to $0.25$ when the side length of the square is set to $2$~\cite{bridge_wolfram}. The new shape can be seen in Figure~\ref{fig:rounded_square} below:
+        However, the bridge cannot be a polygon with sharp corners, as standing on just one point (vertex of the square) would be too unstable for such a big structure in the real world, as it weights 13 tons~\cite{bridge_newatlas}. Therefore, the corners of the square have to be rounded to increase area of contact and decrease pressure. This can be done by adding a circle of radius $b$ to each corner of the square. In the actual bridge the radius $b$ is equal to $0.25$ when the side length of the square is set to $2$~\cite{bridge_wolfram}. The new shape can be seen in Figure~\ref{fig:rounded_square} below:
 
         \begin{figure}[H]
             \centering
@@ -367,7 +369,7 @@
         \end{figure}
         \footnotetext{This diagram was created using the \textit{GeoGebra} software}
 
-        Let $O$ be the origin point $(0,0)$, $A(1-b,b-1)$ be the centre of the circle and $B$ be an arbitrary point on the rounded corner. Then, the radial distance $r$ is the length of $|OB|$. The situation described can be seen in Figure~\ref{fig:corner_cos_rule}.
+        Let $O(0,0)$ be the origin point, $A(1-b,b-1)$ be the centre of the circle and $B$ be an arbitrary point on the rounded corner. Then, the radial distance $r$ is the length of $|OB|$. The situation described can be seen in Figure~\ref{fig:corner_cos_rule}.
 
         Using the property of a square diagonal $|OA| = \sqrt{2} (1-b)$. For clarity, let $\bar{b} = (1-b)$. Then, $|OA| = \sqrt{2}\;\bar{b}$. Let $\alpha = \angle BOA$. Hence, by cosine rule:
         \begin{align}
@@ -524,7 +526,7 @@
         % \end{align}
         \begin{figure}[H]
             \includegraphics[width=\linewidth]{images/centered_corner_road.png}
-            \caption{Centred rounded corner road}\label{fig:corner_road_centered}
+            \caption{Centred corner road}\label{fig:corner_road_centered}
         \end{figure}
 
         To insert the new road piece into the whole road, its centre has to be where the catenary curves intersect. The first such point is at $x=\text{arsinh}(1)$ (from Equation~\ref{eq:x_cosh_end}). Therefore, the corner road has to be shifted horizontally by additional $\text{arsinh}(1) \approx 0.881$ to the right. Combining this with the $0.0661$ leftward shift, a shift to the right by approximately $0.815$ is obtained. Hence, a fragment of the final road can be seen in Figure~\ref{fig:corner_road_full} below:
@@ -567,7 +569,7 @@
 
         This problem can be fixed by rounding corners of the triangle using circles with radii equal to $4.2\%$ of the side length~\cite{Hall_Wagon_1992,bridge_wolfram}, but it may still prove interesting to find the road for the not-rounded triangle.
 
-        Similarly as with the square, one can start with only one side and obtain the $y= -\cosh x$ road, but this time the angle of intersection of consecutive catenaries should be $60\degree = \frac{\pi}{3} \;\text{rad}$ (the internal angle of an equilateral triangle).
+        Similarly as with the square, only one side should be considered at first to obtain the $y= -\cosh x$ road, but this time the angle of intersection of consecutive catenaries should be $60\degree = \frac{\pi}{3} \;\text{rad}$ (the internal angle of an equilateral triangle).
 
         Using Equation~\ref{eq:lines_angle}:
         \begin{align}
@@ -595,7 +597,7 @@
 
         Hence, for the first catenary:
         \begin{align}
-            y = -\cosh(x) \quad x \in [-\text{arsinh}\sqrt{3}, \text{arsinh}\sqrt{3}]
+            y = -\cosh(x) \quad , \quad x \in [-\text{arsinh}\sqrt{3}, \text{arsinh}\sqrt{3}]
         \end{align}
 
         Thus, the following road was obtained:
@@ -627,9 +629,9 @@
 
         It can immediately be seen that the side of the triangle is much larger than the width of one catenary ($2\sqrt{3} > 2\text{arsinh}\sqrt{3}$), which visually shows why the triangle crashes into its own road and is thus unable to rotate about it.
 
-        A triangular shape is also not a good pick for a bridge, because if it was rotated by half a revolution (so that ships could swim beneath it), it would stand on its own vertex. Such solution would be very dangerous in real life due to its instability. Moreover, due to the steep road, a great friction force would be needed to prevent slipping of the bridge during rolling~\cite{bridge_wolfram}. The standing-on-vertex problem is actually the case for all odd-sided polygons, so it is perhaps more interesting to look at an even-sided polygon~-~more precisely a regular hexagon.
+        Due to the steep road, a great frictional force would also be needed to prevent slipping of the bridge during rolling~\cite{bridge_wolfram}. Moreover, a triangular shape is not a good pick for a bridge, because if it was rotated by half a revolution (so that ships could swim beneath it), it would stand on its own vertex. Such solution would be very dangerous in real life due to its instability. The standing-on-vertex problem is actually the case for all odd-sided polygons, so it is perhaps more interesting to look at an even-sided polygon~-~more precisely a regular hexagon.
 
-        Once again, firstly only one side rolling should be considered, so the road is $y = -\cosh(x)$. However, in a regular hexagon, all interior angles are $120\degree = \frac{2\pi}{3}$ rad, which should be the angle of intersection of two consecutive catenaries. 
+        Once again, initially only one side rolling should be considered, so the road is $y = -\cosh(x)$. In a regular hexagon, all interior angles are $120\degree = \frac{2\pi}{3}$ rad, which should be the angle of intersection of two consecutive catenaries. 
         
         Thus, at the point of intersection (using Equations~\ref{eq:lines_angle},~\ref{eq:tangent_intersection}):
         \begin{align}
@@ -651,14 +653,14 @@
             x = \pm \text{arsinh}\frac{\sqrt{3}}{3} \approx \pm 0.549
         \end{align}
 
-        At the beginning, the distance from the centre of the hexagon to the road had to be equal to $1$, so its side length $a=\frac{2\sqrt{3}}{3}$. Thus, the road, along with the hexagon can be seen graphed below in Figure~\ref{fig:hexagon}:
+        At the beginning, the distance from the centre of the hexagon to the road had to be equal to $1$, so its side length can be calculated to be $a=\frac{2\sqrt{3}}{3}$. Thus, the road, along with the hexagon can be seen graphed below in Figure~\ref{fig:hexagon}:
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.8\linewidth]{images/hexagon_bridge.png}
-            \caption{Hexagon with its own road}\label{fig:hexagon}
+            \caption{Hexagon on top of its road}\label{fig:hexagon}
         \end{figure}
 
-        It is interesting to note that in this case there have to be 4 catenaries in order for the polygon to rotate by $180\degree$. The square needed only 3 curves, while the triangle only 2 (or actually $2.5$~-~to keep it balanced on the vertex when the bridge is open). So it seems that the more sides the polygon has, the more catenaries it requires for half of a revolution. However, the more catenaries there are, the shorter they are, so the width of the road becomes actually smaller. As the number of sides will increase and the shape will approach a circle, the length of the road to rotate by half a revolution will approach $\pi$ (half of the perimeter of a circle with radius $1$).
+        It is interesting to note that in this case there have to be 4 catenaries in order for the polygon to rotate by $180\degree$. The square needed only 3 curves, while the triangle only 2 (or actually $2.5$~-~to keep it balanced on the vertex when the bridge is open). So it seems that the more sides the polygon has, the more catenaries it requires for half of a revolution. However, the more catenaries there are, the shorter they are, so the total width of the road becomes actually smaller. As the number of sides will increase and the shape will approach a circle, the length of the road to rotate by half a revolution will approach $\pi$ (half of the perimeter of a circle with radius $1$).
 
         Another observation that can be made is that the more sides the polygon has, the sooner the catenary is truncated and less steep it becomes. This is quite intuitive, because as the shape becomes more circular, the road is more and more like the one ideal for a circle~-~a straight line.
 
