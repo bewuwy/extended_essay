@@ -15,7 +15,7 @@ theta_stop = arctan(4/3) - pi/2
 h = 0.001
 x_0 = 0.693 * 1.22
 
-y_shift = - 0.041
+y_shift = - 0.0045 # - 0.041
 
 cur_theta = theta_start
 cur_x2 = x_0
